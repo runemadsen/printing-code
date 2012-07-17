@@ -5,7 +5,7 @@ PVector bezierAnchor;
 
 void setup()
 {
-  size(400, 250);
+  size(1280, 750);
   smooth();
   frameRate(24);
   
@@ -18,6 +18,7 @@ void setup()
 
 void draw()
 {
+  scale(3);
   background(255);
   
   int percent = frameCount % 100;
@@ -59,24 +60,25 @@ void draw()
   PVector pointBetween5 = drawDotBetween(pointBetween2, pointBetween3, percent, color(0, 255, 0));
   
   PVector pointBetween6 = drawDotBetween(pointBetween4, pointBetween5, percent, color(255, 0, 0));
+  
+  saveFrame("line-####.png"); 
 }
 
 PVector drawDotBetween(PVector start, PVector stop, int percent, color c)
 {
-  pushMatrix();
-  translate(start.x, start.y);
+  // draw line
+  stroke(200);
+  strokeWeight(1);
+  line(start.x, start.y, stop.x, stop.y);
   
   // draw dot
+  pushMatrix();
+  translate(start.x, start.y);
   PVector pointBetween = getPointOnLine(start, stop, percent);
   noStroke();
   fill(c);
   ellipse(pointBetween.x, pointBetween.y, 6, 6);
   popMatrix();
-  
-  // draw line
-  stroke(200);
-  strokeWeight(1);
-  line(start.x, start.y, stop.x, stop.y);
   
   pointBetween.add(start);
   return pointBetween;
