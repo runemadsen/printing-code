@@ -5,7 +5,7 @@ PVector bezierAnchor;
 
 void setup()
 {
-  size(1280, 750);
+  size(400, 250);
   smooth();
   frameRate(24);
   
@@ -18,7 +18,6 @@ void setup()
 
 void draw()
 {
-  scale(3);
   background(255);
   
   int percent = frameCount % 100;
