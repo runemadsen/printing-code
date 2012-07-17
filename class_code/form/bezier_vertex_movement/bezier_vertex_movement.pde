@@ -59,8 +59,6 @@ void draw()
   PVector pointBetween5 = drawDotBetween(pointBetween2, pointBetween3, percent, color(0, 255, 0));
   
   PVector pointBetween6 = drawDotBetween(pointBetween4, pointBetween5, percent, color(255, 0, 0));
-  
-  saveFrame("line-####.png"); 
 }
 
 PVector drawDotBetween(PVector start, PVector stop, int percent, color c)
