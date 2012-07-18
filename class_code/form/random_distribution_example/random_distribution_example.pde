@@ -6,32 +6,8 @@ void setup()
   fill(0);
   background(255);
   
-  noiseDetail(3, 1.1);
-  noiseSeed(1);
-  
-  translate(100, 100);
-  int x = 0;
-  int y = 0;
-  
-  // draw 3x3 rectangles
-  for(int i = 0; i < 3; i++)
+  for(int i = 0; i < 30; i++)
   {  
-    for(int j = 0; j < 3; j++)
-    {
-      float ranX = random(x * 0.8, x * 1.2);
-      float ranY = random(y * 0.8, y * 1.2);
-      float ranRot = random(360);
-      
-      pushMatrix();
-      translate(ranX, ranY);
-      rotate(radians(ranRot));
-      rect(-25, -25, 50, 50);
-      popMatrix();
-      
-      y += 120;
-    }
-    
-    x += 170;
-    y = 0;
+    ellipse(random(width), random(height), 60, 60);
   }
 }
