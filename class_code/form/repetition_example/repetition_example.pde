@@ -1,6 +1,6 @@
 void setup()
 {  
-  size(600, 5000);
+  size(600, 500);
   smooth();
   noStroke();
   fill(0);
