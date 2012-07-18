@@ -11,7 +11,7 @@ float[] y = new float[circleResolution];
 
 void setup(){
   
-  size(800, 600);
+  size(1200, 800);
   smooth();
 
   // init form
