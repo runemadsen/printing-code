@@ -17,6 +17,7 @@ class HSBColor
     h = _h;
     s = _s;
     b = _b; 
+    println("creating: " + h + " " + s + " " + b);
   }
   
   HSBColor(float _h, float _s, float _b)
