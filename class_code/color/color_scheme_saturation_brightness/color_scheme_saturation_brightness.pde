@@ -5,9 +5,9 @@ void setup()
   background(360);
   
   // pick 3 random colors of green
-  HSBColor color1 = new HSBColor(120, random(100), random(100));
-  HSBColor color2 = new HSBColor(120, random(100), random(100));
-  HSBColor color3 = new HSBColor(120, random(100), random(100));
+  HSBColor color1 = new HSBColor(0, random(100), random(100));
+  HSBColor color2 = new HSBColor(0, random(100), random(100));
+  HSBColor color3 = new HSBColor(0, random(100), random(100));
   
   // then we draw them on the screen
   int rectSize = 400;
