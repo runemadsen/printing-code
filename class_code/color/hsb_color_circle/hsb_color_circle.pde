@@ -1,11 +1,11 @@
 int numColors = 12;
-int wheelDiameter = 300;
+int wheelDiameter = 600;
 float colorSpacing = 1;
-int wheelThickness = 60;
+int wheelThickness = 120;
 
 void setup()
 {
-  size(600, 600);
+  size(1280, 800);
   colorMode(HSB, 360, 100, 100);
   background(360);
   
@@ -23,7 +23,7 @@ void setup()
     float startAngle = i * colorAngle + colorSpacing;
     float stopAngle = (i + 1) * colorAngle - colorSpacing;
     
-    stroke(startAngle, 100, 100);
+    stroke(startAngle, 90, 75);
     arc(0, 0, wheelDiameter, wheelDiameter, radians(startAngle), radians(stopAngle));
   }
    

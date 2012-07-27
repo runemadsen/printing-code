@@ -19,7 +19,7 @@ void setup()
   // then we draw them on the screen
   int rectSize = 400;
   translate(40, 200);
-  color2.display(0, 0, rectSize, rectSize);
-  color1.display(rectSize, 0, rectSize, rectSize);
-  color3.display(rectSize*2, 0, rectSize, rectSize);
+  color1.display(0, 0, rectSize, rectSize);
+  color2.display(rectSize*2, 0, rectSize, rectSize);
+  color3.display(rectSize, 0, rectSize, rectSize);
 }
