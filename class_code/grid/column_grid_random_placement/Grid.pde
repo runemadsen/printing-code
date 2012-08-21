@@ -1,47 +1,41 @@
 class Grid
 {
-  float cols;
+  int cols;
   float pageMargin;
-  float colSize;
+  Column[] columns;
   
-  Grid(float _cols, float _pageMargin)
+  Grid(int _cols, float _pageMargin)
   {
     cols = _cols;
     pageMargin = _pageMargin;
     
     // cache the width of the column. Remember to cast as float, otherwise the columns will not line up
-    colSize = ((float)width - (2*pageMargin)) / cols;
-  }
-  
-  Column getColumns(int startCol, int numCols)
-  {
-    // because we can't return multiple variable from a function, we create this model object that can hold x,y,w,h
-    // and return that instead.
-    Column col = new Column();
+    float colWidth = ((float)width - (2*pageMargin)) / cols;
     
-    // finding the x position of this column is a bit hard.
-    col.x = pageMargin + ((startCol - 1) * colSize);
+    // make column objects
+    columns = new Column[cols];
     
-    // The rest of the values are easy to calculate
-    col.y = pageMargin;
-    col.w = colSize * numCols;
-    col.h = height - (2*pageMargin);
-    return col;
+    for(int i = 0; i < cols; i++)
+    {
+      columns[i] = new Column();
+      columns[i].x = pageMargin + (i*colWidth);
+      columns[i].y = pageMargin;
+      columns[i].w = colWidth;
+      columns[i].h = height - (2*pageMargin);
+    }
   }
-  
+
   void display()
   {
+    // draw big bounding box
     noFill();
     stroke(255, 0, 0, 100);
     rect(pageMargin, pageMargin, width - (2*pageMargin), height - (2*pageMargin));
     
-    float xPos = pageMargin + colSize; // do not repeat first line
-    float yPos = pageMargin;
-    
-    while(xPos < width - pageMargin)
+    // draw each column
+    for(int i = 0; i < cols; i++)
     {
-      line(xPos, pageMargin, xPos, height - pageMargin);
-      xPos += colSize;
+      rect(columns[i].x, columns[i].y, columns[i].w, columns[i].h);
     }
   }
 }

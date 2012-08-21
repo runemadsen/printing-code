@@ -1,20 +1,17 @@
-class Column
+class Module
 {
   float x;
   float y;
   float w;
   float h;
   
-  Column()
-  {
-    
-  }
+  Module() {}
  
-  Column(float _x, float _y, float _w, float _h)
+  Module(float _x, float _y, float _w, float _h)
   {
     x = _x;
     y = _y;
     w = _w;
     h = _h;
-  }
+  } 
 }

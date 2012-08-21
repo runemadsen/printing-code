@@ -11,14 +11,15 @@ void setup()
   fill(30);
   
   // not we can use that grid object to find placements in the grid
-  Column oneColumn = grid.getColumns(2, 1);
-  rect(oneColumn.x, oneColumn.y, oneColumn.w, oneColumn.h / 2);
+  Column secondColumn = grid.columns[1];
+  rect(secondColumn.x, secondColumn.y, secondColumn.w, secondColumn.h / 2);
   
   // look how nice it is!
-  Column anotherColumn = grid.getColumns(4, 2);
+  Column fourthColumn = grid.columns[3];
+  Column fifthColumn = grid.columns[4];
   ellipseMode(CORNER);
-  ellipse(anotherColumn.x, anotherColumn.h - anotherColumn.w, anotherColumn.w, anotherColumn.w);
+  ellipse(fourthColumn.x, (fourthColumn.y + fourthColumn.h) - (fourthColumn.w + fifthColumn.w), fourthColumn.w + fifthColumn.w, fourthColumn.w + fifthColumn.w);
   
   // we can even implement a function that draws the grid for us
-  //grid.display();
+  grid.display();
 }

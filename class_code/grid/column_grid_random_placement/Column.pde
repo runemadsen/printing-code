@@ -16,5 +16,5 @@ class Column
     y = _y;
     w = _w;
     h = _h;
-  } 
+  }
 }
