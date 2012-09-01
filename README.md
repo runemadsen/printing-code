@@ -1,6 +1,7 @@
-printing-code-2012
+Printing Code 2012
 ==================
 
-Repository for the "Printing Code" taught at ITP, NYU
+This is the repository for the class Printing Code taught at the Interactive Telecommunications Program at NYU.
 
-Create a folder with your name. In that folder create a folder per week ("week1", "week2", etc). Put your Processing sketches in there.
+Class syllabus can be found here:
+http://www.runemadsen.com/printing-code-2012
