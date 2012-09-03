@@ -22,7 +22,7 @@ void setup()
   //RCommand.setSegmentator(RCommand.UNIFORMSTEP);
   //RCommand.setSegmentator(RCommand.ADAPTATIVE);  
 
-  // get the points on font outline
+  // get the points on font outline.
   RGroup grp;
   grp = font.toGroup("H");
   grp = grp.toPolygonGroup();
