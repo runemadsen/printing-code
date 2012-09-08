@@ -85,4 +85,6 @@ void setup()
     fill(0);
     rect(smallX, smallY, smallCubeSize, smallCubeSize);   
   }
+  
+  saveFrame("grab.png");
 }
