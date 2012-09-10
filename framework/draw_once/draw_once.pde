@@ -33,7 +33,7 @@ void setup()
   
   image(canvas, (width / 2) - (resizedWidth / 2), (height / 2) - (resizedHeight / 2), resizedWidth, resizedHeight);
   
-  //saveFrame("sketch.png");
+	canvas.save("grab.png");
 }
 
 /*  Calculate resizing
