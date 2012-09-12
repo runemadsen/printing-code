@@ -6,6 +6,7 @@ void setup()
   fill(30);
   noStroke();
   
+  translate((width / 2) - 200, (height / 2) - 200);
   beginShape();
   
   int xPos = 0;
@@ -17,5 +18,4 @@ void setup()
   }
   
   endShape();
-
 }
