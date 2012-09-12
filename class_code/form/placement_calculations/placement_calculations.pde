@@ -29,7 +29,7 @@ void setup()
   // draw an ellipse on the edge of the other ellipse, on 45 degrees
   fill(255, 0, 0);
   translate(width / 2, height / 2);
-  float x = sin(radians(45)) * (circleSize / 2);
+  float x = cos(radians(45)) * (circleSize / 2);
   float y = sin(radians(45)) * (circleSize / 2);
   ellipse(x, y, 20, 20);
   
