@@ -1,7 +1,3 @@
-// Parts of this example has been adapted from P_2_2_3_02_TABLET
-// from http://www.generative-gestaltung.de
-//import generativedesign.*;
-
 int circleResolution = 15;
 float circleRadius = 150;
 float displaceAmount = 2;
