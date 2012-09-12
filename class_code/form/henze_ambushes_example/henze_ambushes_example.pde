@@ -48,5 +48,3 @@ void draw()
   
   endShape();
 }
-
-
