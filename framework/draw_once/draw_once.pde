@@ -21,11 +21,12 @@ void setup()
   
   calculateResizeRatio();
   
+  int circleSize = canvas.width / 5;
+  
   canvas.beginDraw();
-    canvas.background(255);
-    canvas.noStroke();
-    canvas.fill(255, 0, 0);
-    canvas.ellipse(canvas.width / 2, canvas.height / 2, 2000, 2000);
+    canvas.smooth();
+    canvas.background(200); 
+    canvas.ellipse(canvas.width / 2, canvas.height / 2, circleSize, circleSize);
   canvas.endDraw();
   
   float resizedWidth = (float) canvas.width * ratio;
