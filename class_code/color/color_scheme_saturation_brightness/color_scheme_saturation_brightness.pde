@@ -4,7 +4,7 @@ void setup()
   colorMode(HSB, 360, 100, 100);
   background(360);
   
-  // pick 3 random colors of green
+  // pick 3 random colors of red
   HSBColor color1 = new HSBColor(0, random(100), random(100));
   HSBColor color2 = new HSBColor(0, random(100), random(100));
   HSBColor color3 = new HSBColor(0, random(100), random(100));
