@@ -8,8 +8,7 @@ void setup()
   HSBColor color1 = new HSBColor(0, 100, 100);
   
   // then find colors on each side of this color by adding/subtracting
-  // a specific number of degrees on the hue scale. I use 30 here, as the
-  // standard color wheel has 12 colors, and 360/12 is 30.
+  // a specific number of degrees on the hue scale.
   int leftHue = (color1.h + 240) % 360;
   int rightHue = (color1.h + 120) % 360;
   
