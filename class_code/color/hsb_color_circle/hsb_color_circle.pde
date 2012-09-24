@@ -23,7 +23,7 @@ void setup()
     float startAngle = i * colorAngle + colorSpacing;
     float stopAngle = (i + 1) * colorAngle - colorSpacing;
     
-    stroke(startAngle, 90, 75);
+    stroke(startAngle, 40, 40);
     arc(0, 0, wheelDiameter, wheelDiameter, radians(startAngle), radians(stopAngle));
   }
    

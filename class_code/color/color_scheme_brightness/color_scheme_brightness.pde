@@ -9,8 +9,8 @@ void setup()
   
   // then we pick two colors with different brightness
   int diff = 30;
-  HSBColor color2 = new HSBColor(color1.h, color1.s, color1.b - diff);
-  HSBColor color3 = new HSBColor(color2.h, color2.s, color2.b - diff);
+  HSBColor color2 = new HSBColor(color1.h, color1.s - diff, color1.b - diff);
+  HSBColor color3 = new HSBColor(color2.h, color2.s - diff, color2.b - diff);
   
   // then we draw them on the screen
   int rectSize = 400;
