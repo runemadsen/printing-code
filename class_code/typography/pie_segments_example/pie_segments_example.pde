@@ -27,7 +27,7 @@ float[][] letters = {
   { 35, 160, 145, 245, 180, 265, 160, 145, 115, 180 }, // W
   { 150, 80, 95, -50, 280, 150, 220, 105, 130, 280 }, // X
   { 140, 90, 100, 60, 180, 120, 140, 160, -60, 180 }, // Y
-  {30, 20, 150, 0, 45, 290, 290, 260, 180, 60 } // Z
+  {30, 20, 240, 0, 45, 290, 290, 260, 180, 60 } // Z
 };
 
 // if we want the letters smaller than 300, let's multiply their numbers by this float
@@ -89,7 +89,6 @@ void drawPie(float x, float y, float r, float s, float e)
   rotate(radians(s));
   fill(30);
   noStroke();
-  ellipse(0, 0, 10, 10);
   arc(0, 0, r * 2, r * 2, radians(0), radians(e));
   popMatrix();
 }
