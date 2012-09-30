@@ -24,8 +24,9 @@ void setup()
   int circleSize = canvas.width / 5;
   
   canvas.beginDraw();
+    canvas.colorMode(HSB, 1, 1, 1);
     canvas.smooth();
-    canvas.background(200); 
+    canvas.fill(0, 1, 1); 
     canvas.ellipse(canvas.width / 2, canvas.height / 2, circleSize, circleSize);
   canvas.endDraw();
   
@@ -34,7 +35,7 @@ void setup()
   
   image(canvas, (width / 2) - (resizedWidth / 2), (height / 2) - (resizedHeight / 2), resizedWidth, resizedHeight);
   
-  canvas.save("grab.png");
+  //canvas.save("grab.png");
 }
 
 /*  Calculate resizing

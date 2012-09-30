@@ -1,7 +1,7 @@
 import geomerative.*;
 
 String charToDraw = "a";
-float danceFactor = 1;
+float danceFactor = 4;
 
 RFont font;
 RGroup grp;
