@@ -17,7 +17,7 @@ class ModularGrid
     
     modules = new Module[cols][rows];
     
-    // cache the width of each column. Remember to cast as float, otherwise the columns will not line up
+    // cache the width of entire grid. Remember to cast as float, otherwise the columns will not line up
     // First we find the width of the page without the pagemargin
     float actualPageWidth = ((float)width - (2*pageMargin));
     // then we find the gutter sizes. We subtract by 1 as the furthermost right module will not have a right-side gutter

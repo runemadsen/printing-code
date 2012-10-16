@@ -24,7 +24,6 @@ void setup()
   fill(0);
   text(s, startModule.x, startModule.y, startModule.w * 2, startModule.h * 2 + grid.gutterSize);
   
-  
   // we can even implement a function that draws the grid for us
   grid.display();
 }
