@@ -1,6 +1,7 @@
 class Randomizer {
 
 	ArrayList<Choice> options = new ArrayList();
+	float sum = 0;
 
 	Randomizer() {}
 
@@ -18,17 +19,11 @@ class Randomizer {
 	void addChoice(String name, float percentage)
 	{
 		options.add(new Choice(name, percentage));
+		sum += percentage;
 	}
 
 	String makeChoice()
 	{
-		// first get sum of all choices
-		float sum = 0;
-		for(int i = 0; i < options.size(); i++)
-		{
-			sum += options.get(i).percentage;
-		}
-
 		// pick a random number from the sum of all
 		float result = random(sum);
 
