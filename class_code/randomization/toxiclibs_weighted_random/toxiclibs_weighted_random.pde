@@ -7,17 +7,14 @@ void setup()
   smooth();
   fill(255);
 
-	WeightedRandomSet<Circle> circles = new WeightedRandomSet<Circle>();
+  WeightedRandomSet<String> countries = new WeightedRandomSet<String>();
 
-	//circles.add(new Circle(1, 300, #cb4837, 3, 30), 50);
-	//circles.add(new Circle(1, 100, #4a608c, 10, 0), 10);
-	//circles.add(new Circle(1, 250, #f2f449, 1, 157), 20);
-	
-	// randomly pick 3 circles
-  /*for (int i = 0; i < 3; i++){
-    Circle cir = circles.getRandom();
-    cir.display();  
-  }*/
+  countries.add("USA", 50);
+  countries.add("Denmark", 10);
+  countries.add("France", 20);
 
+  String country = countries.getRandom();
+  
+  text(country, width / 2, height /2);	
   //saveFrame("toxiclibs_circles.jpg");
 }
