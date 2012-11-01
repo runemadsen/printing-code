@@ -11,7 +11,7 @@ void setup() {
   // SET APPLET SIZE
   size((int)Math.ceil(PRINTW * screenDPI), (int)Math.ceil(PRINTH * screenDPI), P2D);
   // SET CANVAS SIZE
-  canvas = createGraphics((int)PRINTW*DPI, (int)PRINTH*DPI, P2D);
+  canvas = createGraphics((int)PRINTW*DPI, (int)PRINTH*DPI);
   
   
   background(0); 
