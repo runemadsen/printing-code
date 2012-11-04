@@ -1,3 +1,6 @@
+import toxi.geom.*;
+import toxi.color.*;
+
 void setup()
 {
   size(1280, 800);
@@ -18,13 +21,20 @@ void setup()
     {
       int index = x + y * bruce.width;
 
+      // first get the color values.
       float r = (bruce.pixels[index] >> 16) & 0xFF;
       float g = (bruce.pixels[index] >> 8) & 0xFF;
       float b = bruce.pixels[index] & 0xFF;
-      
-      fill(r, g, b);
-      rect(x, y, 1, 1);
+
+      // invert them
+      r = 255 - r;
+      g = 255 - g;
+      b = 255 - b;
+
+      bruce.pixels[index] = color(r, g, b);
     }
   }
 
+  bruce.updatePixels();
+  image(bruce, 0, 0);
 }
