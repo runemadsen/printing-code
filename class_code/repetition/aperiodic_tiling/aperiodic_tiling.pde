@@ -22,8 +22,6 @@ void setup()
   startSize = 600;
   translate(0, -850);
   drawL(0, 0, 1700, 0, 0, color(60, 100, 150));
-  
-  saveFrame("grab.png");
 }
 
 void drawL(float x, float y, float sideLength, float rot, int level, int col)

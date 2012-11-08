@@ -4,7 +4,7 @@ import toxi.color.*;
 void setup()
 {
   size(1280, 800);
-  smooth();
+  //smooth();
   background(255);
   colorMode(HSB, 1, 1, 1);
   noStroke();
@@ -13,7 +13,8 @@ void setup()
   PImage bruce = loadImage("bruce.jpg");
   bruce.loadPixels();
 
-  translate((width/2) - (bruce.width/2), (height/2) - (bruce.height/2));
+  float shapeWidth = (float) width / bruce.width;
+  float shapeHeight = (float) height / bruce.height;
 
   // loop through image and draw each pixel
   for(int x = 0; x < bruce.width; x++)
@@ -32,7 +33,12 @@ void setup()
       
       // draw the image with small rectangles
       fill(colorValues[0], colorValues[1], colorValues[2]);
-      rect(x, y, 1, 1);
+      rect(x * shapeWidth, y * shapeHeight, shapeWidth, shapeHeight);
+
+      if(x == 50 && y == 50)
+      {
+        println(x * shapeWidth);
+      }
     }
   }
 }
