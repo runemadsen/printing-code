@@ -5,6 +5,6 @@ void setup()
   background(230, 230, 230);
   noStroke();
 
-  Pattern p = new Pattern(250, 200, 800, 400, 10);
+  Pattern p = new Pattern(250, 200, 200, 400, 10);
   p.display();
 }

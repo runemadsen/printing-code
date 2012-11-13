@@ -61,8 +61,8 @@ void setup()
     float ranLength = shapeHeight.pickRandom();
     
     // from the rays and the random length, get a line2d object slightly randomized
-    Line2D leftLine = leftRay.toLine2DWithPointAtDistance(ranLength + shapeHeightAdjust.pickRandom());
-    Line2D rightLine = rightRay.toLine2DWithPointAtDistance(ranLength + shapeHeightAdjust.pickRandom());
+    Line2D leftLine = leftRay.toLine2DWithPointAtDistance(ranLength);
+    Line2D rightLine = rightRay.toLine2DWithPointAtDistance(ranLength);
     
     // now find the mid point between these lines, by creating cross lines and getting the intersection
     Line2D crossLeft = new Line2D(new Vec2D(leftLine.a.x, leftLine.a.y), new Vec2D(rightLine.b.x, rightLine.b.y));

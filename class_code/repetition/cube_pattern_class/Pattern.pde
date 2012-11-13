@@ -21,8 +21,8 @@ class Pattern
 
 	void display()
 	{
-		translate(loc.x, loc.y);
-		for(float y = 0; y <= area.y; y += c) 
+          translate(loc.x, loc.y);
+	  for(float y = 0; y <= area.y; y += c) 
 	  {
 	    for(float x = 0; x <= area.x; x += d)
 	    {

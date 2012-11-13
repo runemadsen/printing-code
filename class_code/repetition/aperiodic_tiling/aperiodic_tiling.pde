@@ -1,8 +1,8 @@
 // Substitution rule:
 // http://web.media.mit.edu/~black/tiles/aperiodic.html
 
-int maxLevel = 0;
-int startSize = 0;
+int maxLevel;
+int startSize;
 
 void setup()
 {
@@ -18,7 +18,7 @@ void setup()
   //drawL(0, 0, startSize, 0, 0, color(60, 100, 150));
   
   // fill the entire thing
-  maxLevel = 6;
+  maxLevel = 5;
   startSize = 600;
   translate(0, -850);
   drawL(0, 0, 1700, 0, 0, color(60, 100, 150));

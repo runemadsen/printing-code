@@ -19,8 +19,8 @@ void drawCircle(int x, int y, int siz)
 
   // call the function again. We need an if statement, 
   // otherwise it goes on forever
-  if(siz > 10)
-  {
+  //if(siz > 10)
+  //{
     drawCircle(x, y, siz - round(random(20)));  
-  }
+  //}
 }

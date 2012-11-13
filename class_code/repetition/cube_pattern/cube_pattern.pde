@@ -13,8 +13,9 @@ void setup()
     for (int x = 0; x <= width + d; x += d)
     {
       pushMatrix();
-      if((y/c) % 2 == 0)  translate(x - b, y);
-      else            translate(x, y);
+      //if((y/c) % 2 == 0)  translate(x - b, y);
+      //else            translate(x, y);
+      translate(x, y);
 
       fill(5, 133, 170);
       quad(0, -c, b, -b, 0, -a, -b, -b);
