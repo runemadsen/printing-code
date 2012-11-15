@@ -31,28 +31,18 @@ void setup()
       pushMatrix();
 
       int index = 0;
+      TColor pixelColor;
       
       if((y/c) % 2 == 0)
       {
-        index = int(x * ratioWidth) + int(y * ratioHeight) * bruce.width;
+        pixelColor = getColorAtPixel(x, y);
         translate(x, y);
       }
-      else {
-        index = int((x - b) * ratioWidth) + int(y * ratioHeight) * bruce.width;
+      else 
+      {
+        pixelColor = getColorAtPixel(int(x - b), y);
         translate(x - b, y);
       }
-
-      // if this index is out of bounds in the image
-      if(index < 0)                 index = 0;
-      else if(index >= bruce.pixels.length)    index = bruce.pixels.length - 1;
-
-      // first get the color values. Even though we're in HSB mode, the color values are RGB in the image
-      float re = (bruce.pixels[index] >> 16) & 0xFF;
-      float gr = (bruce.pixels[index] >> 8) & 0xFF;
-      float bl = bruce.pixels[index] & 0xFF;
-
-      // create new TColor from normalized RGB values
-      TColor pixelColor = TColor.newRGB(re / 255, gr / 255, bl / 255);
     
       stroke(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
       fill(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
@@ -72,4 +62,21 @@ void setup()
       popMatrix();
     }
   }
+}
+
+TColor getColorAtPixel(int x, int y)
+{
+    int index = int(x * ratioWidth) + int(y * ratioHeight) * bruce.width;
+    
+    // if this index is out of bounds in the image
+    if(index < 0)                 index = 0;
+    else if(index > bruce.pixels.length - 1)    index = bruce.pixels.length - 1;
+
+    // first get the color values. Even though we're in HSB mode, the color values are RGB in the image
+    float re = (bruce.pixels[index] >> 16) & 0xFF;
+    float gr = (bruce.pixels[index] >> 8) & 0xFF;
+    float bl = bruce.pixels[index] & 0xFF;
+
+    // create new TColor from normalized RGB values
+    return TColor.newRGB(re / 255, gr / 255, bl / 255);
 }
