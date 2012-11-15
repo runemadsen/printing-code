@@ -28,10 +28,10 @@ void setup()
       float b = bruce.pixels[index] & 0xFF;
       
       // get 0-1 HSB color values from 0-1 RGB values
-      float[] colorValues = TColor.rgbToHSV(r / 255, g / 255, b / 255);
+      TColor pixelColor = TColor.newRGB(r / 255, g / 255, b / 255);
       
       // draw the image with small rectangles
-      fill(colorValues[0], colorValues[1], colorValues[2]);
+      fill(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
       rect(x, y, 1, 1);
     }
   }
