@@ -9,7 +9,6 @@ float d = 40;
 PImage bruce;
 float ratioWidth;
 float ratioHeight;
-int allPixels;
  
 void setup() 
 {
@@ -24,7 +23,6 @@ void setup()
   // how much smaller in percent is the image?
   ratioWidth = (float) bruce.width / (float) width;
   ratioHeight = (float) bruce.height / (float) height;
-  allPixels = (bruce.width * bruce.height) - 1;
 
   for (int y = 0; y <= height + c; y += c) 
   {
@@ -46,7 +44,7 @@ void setup()
 
       // if this index is out of bounds in the image
       if(index < 0)                 index = 0;
-      else if(index > allPixels)    index = allPixels;
+      else if(index >= bruce.pixels.length)    index = bruce.pixels.length - 1;
 
       // first get the color values. Even though we're in HSB mode, the color values are RGB in the image
       float re = (bruce.pixels[index] >> 16) & 0xFF;
