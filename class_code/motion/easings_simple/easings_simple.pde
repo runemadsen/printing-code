@@ -57,6 +57,6 @@ void draw()
 
 void mouseReleased() 
 {
-    Ani.to(this, 1.5, "x", mouseX, Ani.QUART_IN_OUT);
-    Ani.to(this, 1.5, "y", mouseY, Ani.QUART_IN_OUT);
+    Ani.to(this, 3, "x", mouseX, Ani.CUBIC_OUT);
+    Ani.to(this, 1.5, "y", mouseY, Ani.BOUNCE_OUT);
 }

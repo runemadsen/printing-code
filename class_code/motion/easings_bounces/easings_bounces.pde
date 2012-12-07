@@ -27,8 +27,3 @@ void draw()
     balls.get(i).display();
   }
 }
-
-void keyPressed()
-{
-  saveFrame("easings_bounce.png");
-}
