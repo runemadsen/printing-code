@@ -1,40 +1,51 @@
-int DPI = 300; // Print resolution.
-float PRINTW = 17; // Print width in inches.
-float PRINTH = 23; // Print height in inches.
-PGraphics canvas;
-PImage view;
+/*  Properties
+_________________________________________________________________ */
 
-void setup() {
-  // DETERMINE ORIENTATION AND FIT IT ON YOUR COMPUTER SCREEN
-  float maxW = displayWidth*.75, maxH = displayHeight*.75;
-  float screenDPI = (((maxW/PRINTW)*PRINTH) < maxH) ? maxW/PRINTW : maxH/PRINTH;
-  // SET APPLET SIZE
-  size((int)Math.ceil(PRINTW * screenDPI), (int)Math.ceil(PRINTH * screenDPI), P2D);
-  // SET CANVAS SIZE
-  canvas = createGraphics((int)PRINTW*DPI, (int)PRINTH*DPI);
+PGraphics canvas;
+int canvas_width = 3508;
+int canvas_height = 4961;
+
+float ratioWidth = 1;
+float ratioHeight = 1;
+float ratio = 1;
+
+/*  Setup
+_________________________________________________________________ */
+
+void setup()
+{ 
+  size(1300, 850);
+  background(30);
   
+  canvas = createGraphics(canvas_width, canvas_height);
   
-  background(0); 
+  calculateResizeRatio();
   
+  int circleSize = canvas.width / 5;
   
   canvas.beginDraw();
-  canvas.background(255);
+    canvas.colorMode(HSB, 1, 1, 1);
+    canvas.smooth();
+    canvas.fill(0, 1, 1); 
+    canvas.ellipse(canvas.width / 2, canvas.height / 2, circleSize, circleSize);
   canvas.endDraw();
-  refresh();
-}
-
-void draw() {
-  image(view, 0, 0); 
-}
-
-void keyPressed() {
-  if (key == 'r') {
-    refresh();
-  } 
-}
-
-void refresh() {
   
-    view = canvas.get();
-    view.resize(width, height);
+  float resizedWidth = (float) canvas.width * ratio;
+  float resizedHeight = (float) canvas.height * ratio;
+  
+  image(canvas, (width / 2) - (resizedWidth / 2), (height / 2) - (resizedHeight / 2), resizedWidth, resizedHeight);
+  
+  //canvas.save("grab.png");
+}
+
+/*  Calculate resizing
+_________________________________________________________________ */
+
+void calculateResizeRatio()
+{
+  ratioWidth = (float) width / (float) canvas.width;
+  ratioHeight = (float) height / (float) canvas.height;
+  
+  if(ratioWidth < ratioHeight)  ratio = ratioWidth;
+  else                          ratio = ratioHeight;
 }
