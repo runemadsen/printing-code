@@ -5,8 +5,8 @@ import processing.pdf.*;
 
 // Set these variables to the print size you want (in inches)
 // The resulting PDF will be this aspect ratio
-float print_width = 15;
-float print_height = 22;
+float print_width = 17;
+float print_height = 23;
 
 // This will help make the sketch window bigger
 float make_bigger = 40;
