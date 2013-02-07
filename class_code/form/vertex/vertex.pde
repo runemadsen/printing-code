@@ -16,6 +16,4 @@ void setup()
   vertex(sideLength, sideLength);
   vertex(-sideLength, sideLength);
   endShape();
-  
-  saveFrame("grab.png");
 }
