@@ -7,23 +7,22 @@ void setup()
   background(255);
   
   translate(75, 85);
-  int x = 0;
-  int y = 0;
   
   // draw 5x4 ellipses
-  for(int i = 0; i < 20; i++)
-  {  
-    if(i == 13)   fill(23, 141, 50);
-    else         fill(0);
-    
-    ellipse(x, y, 70, 70);
-    
-    x += 110;
-   
-    if(i % 5 == 4)
+  for(int x = 0; x < 5; x++)
+  {
+    for(int y = 0; y < 4; y++)
     {
-      x = 0;
-      y += 110;
-    }
+      if(x == 3 && y == 2)
+      {
+        fill(23, 141, 50);
+      }
+      else
+      {
+        fill(0);
+      }
+      
+      ellipse(x * 110, y * 110, 70, 70);
+    } 
   }
 }

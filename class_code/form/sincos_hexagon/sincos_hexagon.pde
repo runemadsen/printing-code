@@ -7,8 +7,6 @@ void setup()
   
   translate(width / 2, height / 2);
   
-  
-  
   // draw the hexagon
   fill(30);
   
