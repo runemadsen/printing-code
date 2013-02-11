@@ -1,5 +1,4 @@
 import toxi.color.*;
-import toxi.color.theory.*;
 import toxi.util.datatypes.*;
 
 int rectSize = 200;
@@ -15,8 +14,6 @@ void setup()
   
   // create a red color with values go from 0-1
   TColor redColor = TColor.newHSV(0, 1, 1);
-  // you can also use names instead
-  //TColor redColor = TColor.newHSV(Hue.RED.getHue(), 1, 1);
   
   // draw color
   translate(100, 100);
