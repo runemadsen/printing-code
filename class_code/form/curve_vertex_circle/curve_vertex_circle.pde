@@ -13,7 +13,7 @@ void setup()
  
   beginShape();
   
-  for(int i = 0; i < numPoints + 3; i++)
+  for(int i = 0; i < numPoints; i++)
   {
      float x = cos(radians(i * angle)) * circleRadius;
      float y = sin(radians(i * angle)) * circleRadius;

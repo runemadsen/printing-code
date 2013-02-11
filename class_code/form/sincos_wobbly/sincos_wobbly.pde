@@ -13,7 +13,7 @@ void setup()
   noStroke();
   
   beginShape();
-  for(int i = 0; i < numVertices; i++)
+  for(int i = 0; i < numVertices + 3; i++)
   {
     float x = cos(radians(i * vertexDegree)) * (circleRadius + random(-50, 50));
     float y = sin(radians(i * vertexDegree)) * (circleRadius + random(-50, 50));
