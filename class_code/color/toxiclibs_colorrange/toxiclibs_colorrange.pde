@@ -1,5 +1,4 @@
 import toxi.color.*;
-import toxi.color.theory.*;
 import toxi.util.datatypes.*;
 
 int rectSize = 150;
@@ -12,14 +11,15 @@ void setup()
   smooth();
   noStroke();
   colorMode(HSB, 1, 1, 1);
-  
+
   // create a color range object ranges of hue, saturation and brightness
   FloatRange h = new FloatRange(0.1, 0.8);
   FloatRange s = new FloatRange(0.3, 0.8);
   FloatRange b = new FloatRange(0.3, 1);
   ColorRange range = new ColorRange(h, s, b, "My range");
   
-  // you can also use some of the already supported ranges
+  // you can also use some of the already supported ranges.
+  // See a list here: http://toxiclibs.org/docs/colorutils/toxi/color/ColorRange.html
   //ColorRange range = ColorRange.INTENSE;
   
   // find 18 random colors in the range
@@ -34,6 +34,4 @@ void setup()
       rect(i * (rectSize + spacing), j * (rectSize + spacing), rectSize, rectSize);
     }  
   }
-  
-  saveFrame("grab.png");
 }

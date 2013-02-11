@@ -16,17 +16,16 @@ void setup()
   // first create our color theme
   ColorTheme t = new ColorTheme("runes theme");
   
-  // now add some pre-defined colorrange objects 
-  t.addRange("saddlebrown", 0.15);
-  t.addRange("dark teal", 0.05);
-  t.addRange("fresh yellow", 0.05);
-  
-  // we can also add some color ranges with our own parameters
+  // now let's create a color range and put in the color theme
   FloatRange h = new FloatRange(0.1, 0.8);
   FloatRange s = new FloatRange(0.3, 0.8);
   FloatRange b = new FloatRange(0.3, 1);
   ColorRange range = new ColorRange(h, s, b, "runes range");
   t.addRange(range, null, 0.05);
+
+  // If you quickly want to create a range, you can pass in the name of a ColorRange AND the name of a NamedColor as a string:
+  t.addRange("dark teal", 0.05);
+  t.addRange("fresh yellow", 0.05);
 
   // now get 5 random colors from the theme
   ColorList randomList = t.getColors(5);

@@ -17,12 +17,12 @@ void setup()
   ColorList colors = new ColorList();
   
   // put some colors into it
-  colors.add( NamedColor.BLUE );
-  colors.add( NamedColor.BLANCHEDALMOND );
-  colors.add( NamedColor.CORAL );
-  colors.add( NamedColor.PLUM );
-  colors.add( NamedColor.LIME );
-  colors.add( NamedColor.PERU );
+  colors.add( NamedColor.BLUE.copy() );
+  colors.add( NamedColor.BLANCHEDALMOND.copy() );
+  colors.add( NamedColor.CORAL.copy() );
+  colors.add( NamedColor.PLUM.copy() );
+  colors.add( NamedColor.LIME.copy() );
+  colors.add( NamedColor.PERU.copy() );
   
   // theres a lot of functions you can call that changes all the colors in the list
   //colors.adjustBrightness(0.2);
