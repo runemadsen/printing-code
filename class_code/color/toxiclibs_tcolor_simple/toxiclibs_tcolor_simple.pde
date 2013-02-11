@@ -24,5 +24,5 @@ void setup()
   translate(width/2, height/2);
   rectMode(CENTER);
   fill(redColor.hue(), redColor.saturation(), redColor.brightness());
-  rect(0, 0, 150, 150);
+  rect(0, 0, 250, 250);
 }
