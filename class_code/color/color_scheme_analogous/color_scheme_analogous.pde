@@ -23,3 +23,4 @@ void setup()
   color1.display(rectSize, 0, rectSize, rectSize);
   color3.display(rectSize*2, 0, rectSize, rectSize);
 }
+

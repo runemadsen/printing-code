@@ -119,13 +119,8 @@ class Kolor
   void RGBtoRYB(float _red, float _green, float _blue)
   {
     RGBtoRYB(_red, _green, _blue, 255);
-  }
-  
+  } 
 }
-
-
-
-
 
 //
 //  UIColor+Mixing.m
