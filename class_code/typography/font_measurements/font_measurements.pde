@@ -15,6 +15,9 @@ void setup()
   String sentence = "Is this Helvetica?";
   
   translate(fontX, fontY);
+
+  fill(255, 0, 0);
+  ellipse(0, 0, 20, 20);
   
   fill(30);
   text(sentence, 0, 0);

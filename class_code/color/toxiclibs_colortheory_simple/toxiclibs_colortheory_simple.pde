@@ -13,7 +13,7 @@ void setup()
   translate(50, 40);
 
   // to create colors from a color theory, first you must pick a base color
-  TColor col = TColor.newHSV(0 / 360, 50 / 100, 26 / 100);
+  TColor col = TColor.newHSV(0.5, 1, 1);
 
   /* 
     Then you need to pick a strategy. These are the strategies you can use.

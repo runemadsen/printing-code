@@ -1,4 +1,4 @@
-float[][] normalizedOutline = {
+float[][] outline = {
   {493, 354},
   {156, 354},
   {156, 650},
@@ -26,9 +26,9 @@ void setup()
   translate(300, 50);
   
   beginShape();
-  for(int i = 0; i < normalizedOutline.length; i++)
+  for(int i = 0; i < outline.length; i++)
   {
-    vertex(normalizedOutline[i][0], normalizedOutline[i][1]);
+    vertex(outline[i][0], outline[i][1]);
   }
   endShape(CLOSE);
 }

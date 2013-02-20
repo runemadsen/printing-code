@@ -1,5 +1,4 @@
 import toxi.color.*;
-import toxi.color.theory.*;
 import toxi.util.datatypes.*;
 
 int rectSize = 150;
@@ -17,7 +16,7 @@ void setup()
   ColorList colors = new ColorList();
   
   // put some colors into it
-  colors.add( NamedColor.BLUE.copy() );
+  colors.add( TColor.newHSV(0, 1, 1) );
   colors.add( NamedColor.BLANCHEDALMOND.copy() );
   colors.add( NamedColor.CORAL.copy() );
   colors.add( NamedColor.PLUM.copy() );
