@@ -1,11 +1,9 @@
 import geomerative.*;
 
-String charToDraw = "a";
 float danceFactor = 1;
 
 RFont font;
-RGroup grp;
-RPoint[] pnts;
+RPolygon polygon;
 
 void setup() 
 {
@@ -17,38 +15,40 @@ void setup()
 
   // always initialize the library in setup
   RG.init(this);
-  font = new RFont("FreeSansNoPunch.ttf", 600, RFont.LEFT);
+  font = new RFont("FreeSans.ttf", 600, RFont.LEFT);
 
   RCommand.setSegmentLength(25);
   RCommand.setSegmentator(RCommand.UNIFORMLENGTH);
 
-  grp = font.toGroup(charToDraw);
-  pnts = grp.getPoints();
+  // get a polygon from a single character.
+  polygon = font.toPolygon('a');
   
   background(360);
 }
 
 void draw() 
 {
-  pushMatrix();
-
   // translate to the middle. Use plus in y because text is drawn from y and up
-  translate((width / 2) - (grp.getWidth() / 2), (height / 2) + (grp.getHeight() / 2));
+  translate((width / 2) - (polygon.getWidth() / 2), (height / 2) + (polygon.getHeight() / 2));
 
-  // randomize the points
-  for (int i = 0; i < pnts.length; i++ ) {
-    pnts[i].x += random(-danceFactor, danceFactor);
-    pnts[i].y += random(-danceFactor, danceFactor);
-  }
-
-  // draw curved lines between points
-  for (int i=0; i<pnts.length; i++) 
+  // because a character has multiple contours (the whole in the 'a' is one, the outline another),
+  // let's loop through all the contours first
+  for(int i = 0; i < polygon.contours.length; i++)
   {
-    fill(i * 5, 60, 100);
-    ellipse(pnts[i].x, pnts[i].y, 10, 10);
-  }
-  endShape();
+    // for each contour, let's loop through all the points
+    RContour curContour = polygon.contours[i];
+    for(int j = 0; j < curContour.points.length; j++)
+    {
+      // now for each RPoint (which is a vector), make an ellipse
+      RPoint curPoint = curContour.points[j];
 
-  popMatrix();
+      // before drawing the point, let's randomize the x,y values a little bit
+      curPoint.x += random(-danceFactor, danceFactor);
+      curPoint.y += random(-danceFactor, danceFactor);
+
+      fill(frameCount % 360, 60, 100);
+      ellipse(curPoint.x, curPoint.y, 10, 10);
+    }
+  }
 }
 
