@@ -30,7 +30,7 @@ void setup()
   	You will need to create your grid system. Change COLS, ROWS, GUTTER and PAGEMARGIN to integers.
   */
 
-  ModularGrid grid = new ModularGrid(COLS, ROWS, GUTTER, PAGEMARGIN);
+  ModularGrid grid = new ModularGrid(5, 5, 10, 50);
 
   beginRecord(PDF, "print.pdf");
 	background(255);
