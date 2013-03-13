@@ -8,7 +8,7 @@ void setup()
   noFill();
   RG.init(this);
 
-  translate(100, 100);
+  translate(200, 300);
   strokeWeight(2);
 
   // create an RCommand as a straight line and draw it
