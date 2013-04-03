@@ -1,14 +1,12 @@
-class Circle
+class Setting
 {
 	int radius;
 	int kolor;
 	int strokeThickness;
 	int rotation;
-	float percentage;
 
-	Circle(float _percentage, int _radius, int _kolor, int _strokeThickness, int _rotation)
+	Setting(int _radius, int _kolor, int _strokeThickness, int _rotation)
 	{
-		percentage = _percentage;
 		radius = _radius;
 		kolor = _kolor;
 		strokeThickness = _strokeThickness;

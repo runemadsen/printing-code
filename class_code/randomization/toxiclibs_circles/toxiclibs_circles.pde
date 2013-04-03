@@ -7,15 +7,15 @@ void setup()
   smooth();
   noFill();
 
-	WeightedRandomSet<Circle> circles = new WeightedRandomSet<Circle>();
+	WeightedRandomSet<Setting> ran = new WeightedRandomSet<Setting>();
 
-	circles.add(new Circle(1, 300, #cb4837, 3, 30), 50);
-	circles.add(new Circle(1, 100, #4a608c, 10, 0), 10);
-	circles.add(new Circle(1, 250, #f2f449, 1, 157), 20);
+	ran.add(new Setting(300, #cb4837, 3, 30), 1);
+	ran.add(new Setting(100, #4a608c, 10, 0), 2);
+	ran.add(new Setting(250, #f2f449, 1, 157), 3);
 
-	// randomly pick 3 circles
+	// randomly pick 3 Settings
   for (int i = 0; i < 3; i++){
-    Circle cir = circles.getRandom();
-    cir.display();  
+    Setting set = ran.getRandom();
+    set.display();  
   }
 }

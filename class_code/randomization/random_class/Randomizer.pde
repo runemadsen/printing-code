@@ -1,46 +1,36 @@
 class Randomizer {
 
-	ArrayList<Choice> options = new ArrayList();
+	ArrayList<Integer> values = new ArrayList();
+	ArrayList<Float> probabilites = new ArrayList();
 	float sum = 0;
 
 	Randomizer() {}
 
-	/*	Simple function to get a yes / no
-	_________________________________________________________ */
-
-	boolean decide(float percentage)
+	void addChoice(Integer value, float probability)
 	{
-		return random(1) > percentage;
+		values.add(value);
+		probabilites.add(probability);
+		sum += probability;
 	}
 
-	/*	More advanced function to select an option
-	_________________________________________________________ */
-
-	void addChoice(String name, float percentage)
+	Integer getRandom()
 	{
-		options.add(new Choice(name, percentage));
-		sum += percentage;
-	}
-
-	String makeChoice()
-	{
-		// pick a random number from the sum of all
+		// pick a random number from the sum of all probabilities
 		float result = random(sum);
-
-		// then pick a choice from the random result
-		sum = 0;
-		String nameResult = "";
-		for(int i = 0; i < options.size(); i++)
+		float currentSum = 0;
+		
+		// then loop through all choices and return when we get to our random number
+		for(int i = 0; i < values.size(); i++)
 		{
-			sum += options.get(i).percentage;
-			if(sum > result)
+			currentSum += probabilites.get(i);
+			if(currentSum > result)
 			{
-				nameResult = options.get(i).name;
-				break;
+				return values.get(i);
 			}
 		}
 
-		return nameResult;
+		// we just need this because Java is stupid
+		return 0;
 	}
 
 }

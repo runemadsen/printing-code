@@ -3,18 +3,22 @@ import toxi.util.datatypes.*;
 void setup()
 {
   size(1280, 800);
-  background(30); 
+  background(255); 
   smooth();
-  fill(255);
+  noFill();
+  strokeWeight(3);
 
-  WeightedRandomSet<String> countries = new WeightedRandomSet<String>();
+  translate(350, height/2);
 
-  countries.add("USA", 50);
-  countries.add("Denmark", 10);
-  countries.add("France", 20);
+  WeightedRandomSet<Integer> ran = new WeightedRandomSet<Integer>();
 
-  String country = countries.getRandom();
-  
-  text(country, width / 2, height /2);	
-  //saveFrame("toxiclibs_circles.jpg");
+  ran.add(color(255, 0, 0), 2);
+  ran.add(color(0, 255, 0), 5);
+  ran.add(color(0, 0, 255), 3);
+
+  for (int i = 0; i<3; i++) 
+  {
+    stroke(ran.getRandom());
+    ellipse(i * 300, 0, 250, 250); 
+  }
 }

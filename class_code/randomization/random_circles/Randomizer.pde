@@ -1,36 +1,36 @@
 class Randomizer {
 
-	ArrayList<Circle> settings = new ArrayList();
+	ArrayList<Setting> circles = new ArrayList();
+	ArrayList<Float> probabilities = new ArrayList();
 	float sum = 0;
 
 	Randomizer() {}
 
-	void addCircle(Circle s)
+	void addSetting(Setting c, float probability)
 	{
-		settings.add(s);
-		sum += s.percentage;
+		circles.add(c);
+		probabilities.add(probability);
+		sum += probability;
 	}
 
-	Circle chooseCircle()
+	Setting getRandom()
 	{
-		// pick a random number from the sum of all
+		// pick a random number from the sum of all probabilities
 		float result = random(sum);
-
-		// then find the choice from the random result
-		sum = 0;
-		int chosenIndex = 0;
+		float currentSum = 0;
 		
-		for(int i = 0; i < settings.size(); i++)
+		// then loop through all choices and return when we get to our random number
+		for(int i = 0; i < circles.size(); i++)
 		{
-			sum += settings.get(i).percentage;
-			if(sum > result)
+			currentSum += probabilities.get(i);
+			if(currentSum > result)
 			{
-				chosenIndex = i;
-				break;
+				return circles.get(i);
 			}
 		}
 
-		return settings.get(chosenIndex);
+		// we just need this because Java is stupid
+		return circles.get(0);
 	}
 
 }

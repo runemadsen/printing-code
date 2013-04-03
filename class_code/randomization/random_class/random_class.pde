@@ -1,5 +1,3 @@
-Randomizer ran;
-
 void setup()
 {
   size(1280, 800);
@@ -7,40 +5,17 @@ void setup()
   smooth();
   noFill();
   strokeWeight(3);
-  rectMode(CENTER);
 
-  ran = new Randomizer();
+  translate(350, height/2);
 
-  translate(350, 250);
+  Randomizer ran = new Randomizer();
+  ran.addChoice(color(255, 0, 0), 0.2); // red has a 20% chance of being picked
+  ran.addChoice(color(0, 255, 0), 0.5); // red has a 50% chance of being picked
+  ran.addChoice(color(0, 0, 255), 0.3); // red has a 30% chance of being picked
 
-  // first use simple random decide function
   for (int i = 0; i<3; i++) 
   {
-    if(ran.decide(0.5))   stroke(200);
-    else                stroke(30);
-    
+    stroke(ran.getRandom());
     ellipse(i * 300, 0, 250, 250); 
   }
-
-  // then use more advanced choice function to decide what shape to draw. ellipse are 3 times more likely to be chosen
-  stroke(30);
-  translate(0, 300);
-  ran.addChoice("rect", 1);
-  ran.addChoice("ellipse", 3);
-
-  for (int i = 0; i<3; i++) 
-  {
-    String result = ran.makeChoice();
-
-    if(result == "rect")
-    {
-      rect(i * 300, 0, 250, 250);
-    }
-    else if(result == "ellipse")
-    {
-      ellipse(i * 300, 0, 250, 250); 
-    }
-  }
-
-  saveFrame("random_class.jpg");
 }
