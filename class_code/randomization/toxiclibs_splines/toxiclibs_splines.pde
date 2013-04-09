@@ -61,6 +61,4 @@ void setup()
   }
   endShape();
   */
-
-  saveFrame("toxiclibs_splines_5.jpg");
 }
