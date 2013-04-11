@@ -8,14 +8,13 @@ void setup()
   size(1280, 800);
   smooth();
 
-  for (int y = 0; y <= height + c; y += c) 
+  for (int y = 0; y <= height; y += c) 
   {
-    for (int x = 0; x <= width + d; x += d)
+    for (int x = 0; x <= width; x += d)
     {
       pushMatrix();
-      //if((y/c) % 2 == 0)  translate(x - b, y);
-      //else            translate(x, y);
-      translate(x, y);
+      if((y/c) % 2 == 0)  translate(x - b, y);
+      else            translate(x, y);
 
       fill(5, 133, 170);
       quad(0, -c, b, -b, 0, -a, -b, -b);
