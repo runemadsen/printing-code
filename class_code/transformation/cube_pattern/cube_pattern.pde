@@ -44,19 +44,19 @@ void setup()
         translate(x - b, y);
       }
     
-      stroke(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
-      fill(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
+      stroke(pixelColor.toARGB());
+      fill(pixelColor.toARGB());
       quad(0, -c, b, -b, 0, -a, -b, -b);
 
       pixelColor.darken(0.3);
-      stroke(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
-      fill(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
+      stroke(pixelColor.toARGB());
+      fill(pixelColor.toARGB());
       quad(-b, -b, 0, -a, 0, a, -b, 0);
       
       pixelColor.lighten(0.5);
       pixelColor.desaturate(0.8);
-      stroke(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
-      fill(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
+      stroke(pixelColor.toARGB());
+      fill(pixelColor.toARGB());
       quad(b, -b, b, 0, 0, a, 0, -a);
 
       popMatrix();
@@ -72,11 +72,5 @@ TColor getColorAtPixel(int x, int y)
     if(index < 0)                 index = 0;
     else if(index > bruce.pixels.length - 1)    index = bruce.pixels.length - 1;
 
-    // first get the color values. Even though we're in HSB mode, the color values are RGB in the image
-    float re = (bruce.pixels[index] >> 16) & 0xFF;
-    float gr = (bruce.pixels[index] >> 8) & 0xFF;
-    float bl = bruce.pixels[index] & 0xFF;
-
-    // create new TColor from normalized RGB values
-    return TColor.newRGB(re / 255, gr / 255, bl / 255);
+    return TColor.newARGB(bruce.pixels[index]);
 }

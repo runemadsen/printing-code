@@ -12,16 +12,16 @@ void setup()
   stroke(0);
 
   // draw single shape
-  //maxLevel = 5;
-  //startSize = 600;
-  //translate(200, 100);
-  //drawL(0, 0, startSize, 0, 0, color(60, 100, 150));
+  maxLevel = 8;
+  startSize = 1700;
+  translate(0, -850);
+  drawL(0, 0, startSize, 0, 0, color(60, 100, 150));
   
   // fill the entire thing
-  maxLevel = 5;
+  /*maxLevel = 5;
   startSize = 600;
   translate(0, -850);
-  drawL(0, 0, 1700, 0, 0, color(60, 100, 150));
+  drawL(0, 0, 1700, 0, 0, color(60, 100, 150));*/
 }
 
 void drawL(float x, float y, float sideLength, float rot, int level, int col)

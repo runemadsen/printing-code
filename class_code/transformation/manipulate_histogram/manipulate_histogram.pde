@@ -31,14 +31,7 @@ void setup()
     for(int y = 0; y < bruce.height; y++)
     {
       int index = x + y * bruce.width;
-
-      // first get the color values. Even though we're in HSB mode, the color values are RGB in the image
-      float r = (bruce.pixels[index] >> 16) & 0xFF;
-      float g = (bruce.pixels[index] >> 8) & 0xFF;
-      float b = bruce.pixels[index] & 0xFF;
-
-      // create new TColor from normalized RGB values
-      TColor pixelColor = TColor.newRGB(r / 255, g / 255, b / 255);
+      TColor pixelColor = TColor.newARGB(bruce.pixels[index]);
       
       // loop through the list and get the closest color to this pixel
       TColor closestColor = TColor.newHSV(0, 0, 0);
@@ -55,7 +48,7 @@ void setup()
       }
 
       // set pixel with hsb values 
-      bruce.pixels[index] = color(closestColor.hue(), closestColor.saturation(), closestColor.brightness());
+      bruce.pixels[index] = color(closestColor.toARGB());
     }
   }
 

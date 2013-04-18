@@ -21,14 +21,7 @@ void setup()
     for(int y = 0; y < bruce.height; y++)
     {
       int index = x + y * bruce.width;
-
-      // first get the color values. Even though we're in HSB mode, the color values are RGB in the image
-      float r = (bruce.pixels[index] >> 16) & 0xFF;
-      float g = (bruce.pixels[index] >> 8) & 0xFF;
-      float b = bruce.pixels[index] & 0xFF;
-
-      // create new TColor from normalized RGB values
-      TColor pixelColor = TColor.newRGB(r / 255, g / 255, b / 255);
+      TColor pixelColor = TColor.newARGB(bruce.pixels[index]);
       
       pixelColor.adjustConstrast(0.2); // contrast the image by 20%
       //pixelColor.desaturate(0.5); // desature the pixel color by 50%
@@ -36,7 +29,7 @@ void setup()
       //pixelColor.complement(); // turn pixel into complementary color
 
       // set pixel with hsb values 
-      bruce.pixels[index] = color(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
+      bruce.pixels[index] = color(pixelColor.toARGB());
     }
   }
 

@@ -19,7 +19,7 @@ void setup()
 
   // draw a very short line from this
   translate(200, 200);
-  line(0, 0, myDirection.x * 20, myDirection.y * 20);
+  //line(0, 0, myDirection.x * 20, myDirection.y * 20);
   // this would be the same
   // myDirection.scale(20);
   // line(0, 0, myDirection.x, myDirection.y);

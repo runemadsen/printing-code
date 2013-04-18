@@ -27,6 +27,8 @@ void setup()
   house.addMoveTo(0, 0);
   house.addLineTo(150, -100);
   house.addLineTo(300, 0);
+  
+  house.scale(2);
 
   // draw the house
   house.draw();

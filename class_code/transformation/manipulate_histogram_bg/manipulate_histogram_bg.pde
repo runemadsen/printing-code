@@ -27,7 +27,7 @@ void setup()
     for(int y = 0; y < height; y += 20)
     {
       TColor ranColor = bruceColors.getRandom();
-      fill(ranColor.hue(), ranColor.saturation(), ranColor.brightness());
+      fill(ranColor.toARGB());
       rect(x, y, 20, 20);
     }
   }

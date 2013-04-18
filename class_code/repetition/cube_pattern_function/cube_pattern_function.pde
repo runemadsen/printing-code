@@ -4,7 +4,8 @@ void setup()
   smooth();
   background(230, 230, 230);
   noStroke();
-  drawPattern(250, 200, 200, 400, 10);
+  drawPattern(0, 0, width + 100, height + 100, 10);
+  drawPattern(0, 0, width + 100, height + 100, 30);
 }
 
 void drawPattern(int x, int y, int w, int h, int siz)
@@ -28,8 +29,8 @@ void drawPattern(int x, int y, int w, int h, int siz)
 	    quad(0, -c, b, -b, 0, -a, -b, -b);
 	    fill(1, 40, 76);
 	    quad(-b, -b, 0, -a, 0, a, -b, 0);
-	    fill(155);
-	    quad(b, -b, b, 0, 0, a, 0, -a);
+	    //fill(155);
+	    //quad(b, -b, b, 0, 0, a, 0, -a);
 
 	    popMatrix();
 	  }

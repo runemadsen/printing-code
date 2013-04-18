@@ -13,18 +13,16 @@ void setup()
   stroke(0);
 
   // draw single triangle
-  maxLevel = 4;
+  /*maxLevel = 3;
   startSize = 1000;
   translate(width / 2, 200);
-  drawTriangle(0, 0, startSize, 0, 0, false, color(0, 60, 130));
+  drawTriangle(0, 0, startSize, 0, 0, false, color(0, 60, 130));*/
 
   // or fill the screen
-  //startSize = 5000;
-  //maxLevel = 10;
-  //translate(width / 2, -500);
-  //drawTriangle(0, 0, startSize, 0, 0, false, color(0, 60, 130));
-  
-  saveFrame("grab.png");
+  startSize = 5000;
+  maxLevel = 10;
+  translate(width / 2, -500);
+  drawTriangle(0, 0, startSize, 0, 0, false, color(0, 60, 130));
 }
 
 void drawTriangle(float x, float y, float bottomSize, float rot, int level, boolean drawSingle, int col)
