@@ -32,7 +32,7 @@ void setup()
   for (Iterator i=strategies.iterator(); i.hasNext();) 
   {
     // get the strategy
-    ColorTheoryStrategy s = (ColorTheoryStrategy) new TriadTheoryStrategy();//(ColorTheoryStrategy) i.next();
+    ColorTheoryStrategy s = (ColorTheoryStrategy) i.next();
     
     // get a color list with colors for this strategy and the specific color
     ColorList colors = ColorList.createUsingStrategy(s, col);
