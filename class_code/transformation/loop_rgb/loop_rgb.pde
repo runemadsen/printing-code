@@ -1,6 +1,6 @@
 void setup()
 {
-  size(1280, 800);
+  size(800, 600);
   smooth();
   background(255);
   noStroke();
@@ -9,8 +9,7 @@ void setup()
   PImage bruce = loadImage("bruce.jpg");
   bruce.loadPixels();
 
-
-  translate((width/2) - (bruce.width/2), (height/2) - (bruce.height/2));
+  //translate((width/2) - (bruce.width/2), (height/2) - (bruce.height/2));
 
   // loop through image and draw each pixel
   for(int x = 0; x < bruce.width; x++)
@@ -23,8 +22,11 @@ void setup()
       float g = green(bruce.pixels[index]);
       float b = blue(bruce.pixels[index]);
 
+      r = 255 - r;
+      g = 255 - g;
+      b = 255 - b;
       fill(r, g, b);
-      rect(x, y, 1, 1);
+      rect(x * 3, y * 3, 3, 3);
     }
   }
 

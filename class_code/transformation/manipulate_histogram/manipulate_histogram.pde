@@ -5,7 +5,7 @@ import toxi.util.datatypes.*;
 
 void setup()
 {
-  size(1280, 800);
+  size(800, 600);
   smooth();
   background(255);
   colorMode(HSB, 1, 1, 1);
@@ -15,8 +15,8 @@ void setup()
   PImage bruce = loadImage("bruce.jpg");
   bruce.loadPixels();
 
-  // create a histogram that uses 20% of the pixels as a sample, with a color tolerance of 30%
-  Histogram bruceHistogram = Histogram.newFromARGBArray(bruce.pixels, bruce.pixels.length/20, 0.3, true);
+  // create a histogram that uses 1/20 of the pixels as a sample, with a color tolerance of 30%
+  Histogram bruceHistogram = Histogram.newFromARGBArray(bruce.pixels, bruce.pixels.length/50, 0.3, true);
 
   // now get an arraylist of all the entries in the histogram. Each entry has 2 properties: 
   // 1. a TColor that you get by calling getColor() (see the loop)

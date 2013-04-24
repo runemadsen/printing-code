@@ -19,12 +19,3 @@ void draw()
 {
   background(cp.getColorValue());
 }
-
-
-
-
-
-
-
-
-

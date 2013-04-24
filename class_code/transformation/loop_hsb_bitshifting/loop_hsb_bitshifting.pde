@@ -3,7 +3,7 @@ import toxi.color.*;
 
 void setup()
 {
-  size(1280, 800);
+  size(800, 600);
   smooth();
   background(255);
   colorMode(HSB, 1, 1, 1);
@@ -22,7 +22,13 @@ void setup()
     {
       int index = x + y * bruce.width;
       TColor pixelColor = TColor.newARGB(bruce.pixels[index]); // notice the piel val is still RGB
-      fill(pixelColor.toARGB());
+      
+      //pixelColor.adjustConstrast(0.2);
+      //pixelColor.rotateRYB(220);
+      //pixelColor.complement();
+     pixelColor.desaturate(0.5); 
+      
+      fill(pixelColor.hue(), pixelColor.saturation(), pixelColor.brightness());
       rect(x, y, 1, 1);
     }
   }
