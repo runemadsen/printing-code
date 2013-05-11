@@ -9,6 +9,7 @@ Form
 Color
 -----
 
+* Explain the use of CIE LAB in TColor, and why to use it (for calculating perceived contrast, etc)
 * Remove the HSBColor class from examples and just use Toxiclibs TColor
 
 Typography
