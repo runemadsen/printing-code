@@ -15,33 +15,33 @@ In graphic design, we can repeat font style, graphic, line, icons, colors, etc. 
 Paul Rand had to manually arrange all those hearts, in order to simulate a very computational repetition. However, as programmers, we can distill his design rule into code. Here's that exact same design, recreated in Processing.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 But now that we have the design rule in code, we can randomize some value, in order to create a dynamic design, where we quickly can explore different designs.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune2.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune3_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune3.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune4_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune4.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune5_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune5.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune6_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune6.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune7_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune7.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune8_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune8.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune9_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/repetition_rune9.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/repetition)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/repetition)
 
 If we really look at the graphic design masters, repetition is used throughout our graphic design history, and it can be used for many different purposes. Here's a few examples.
 
@@ -101,22 +101,22 @@ Periodic Tiling
 It's pretty easy to do periodic tiling in Processing. Here's an example of an extremely ugly pattern created with a for-loop.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/simple_pattern_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/simple_pattern.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/simple_pattern)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/simple_pattern)
 
 Here's a slightly better looking cube pattern.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/cube_pattern_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/cube_pattern.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/cube_pattern)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/cube_pattern)
 
 Here's that same cube pattern code, but using a function to clean up the main setup function.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/cube_pattern_class_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/cube_pattern_class.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/cube_pattern_function)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/cube_pattern_function)
 
 Here I'm using the class twice to overlay two patterns
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/cube_pattern_class_overlay_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/cube_pattern_class_overlay.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/cube_pattern_function_overlay)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/cube_pattern_function_overlay)
 
 However, these patterns only allow us to create stricly repetitive patterns. To do more sophisticated patterns, we need to learn about aperiodic tiling.
 
@@ -129,12 +129,12 @@ Crucial to the concept of aperiodic tiling is recursion.
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/recursion_ref_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/recursion_ref.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/recursion_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/recursion.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/recursion)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/recursion)
 
 Or here's a slightly more usable example, where I'm splitting a rectangle via recursion.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/recursion2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/recursion2.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/recursion2)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/recursion2)
 
 
 Aperiodic Tiling: Substitution Rules
@@ -155,7 +155,7 @@ Aperiodic Tiling: Substitution Rules
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_division_simple5_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_division_simple5.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_division_simple6_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_division_simple6.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/aperiodic_tiling)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/aperiodic_tiling)
 
 **Slightly more advanced aperiodic tiling**
 
@@ -174,7 +174,7 @@ Aperiodic Tiling: Substitution Rules
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_division6_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_division6.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_pattern_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/repetition/aperiodic_pattern.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/coderepetition/aperiodic_tiling2)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/repetition/aperiodic_tiling2)
 
 
 Some Pattern Examples

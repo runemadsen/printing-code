@@ -97,12 +97,12 @@ Pixel Iteration
 Looping over an image pixels in RGB color mode.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/loop_rgb)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/loop_rgb)
 
 Looping over an image pixels in HSB color mode.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/loop_hsb)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/loop_hsb)
 
 
 Pixel Iteration with Bitshifting
@@ -111,39 +111,39 @@ Pixel Iteration with Bitshifting
 You might experience that these color functions are super slow. Now that we know about bites, we can use a tehnique called bitshifting to get the color values. This is a much faster way of getting pixel colors, and even though it looks a little cryptic, it's somehow simple.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/loop_rgb_bitshifting)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/loop_rgb_bitshifting)
 
 Bitshifting is much, much faster than using the color functions, however, it will always return values in RGB. Here's an example of how to use bitshifting in HSB colormode with the Toxiclibs TColor class.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/loop_rgb.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/loop_hsb_bitshifting)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/loop_hsb_bitshifting)
 
 
 Pixel Manipulation
 ------------------
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_invert_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_invert.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/manipulate_invert)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/manipulate_invert)
 
 This is a very simple example, because we just invert the color. However, if we want to manipulate the individal colors, we know that HSB is a much better colormode. Here's an example of how to manipulate the colors by spinning around the HSB wheel.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_tcolor_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_tcolor.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/manipulate_tcolor)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/manipulate_tcolor)
 
 Now that we're in Toxiclibs land, we can do all sorts of cool things. For example, here's an example of changing the pixels in an image to the closest color in a Colorlist.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_colorlist_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_colorlist.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/manipulate_colorlist)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/manipulate_colorlist)
 
 There's also a great Histogram class in the Toxiclibs library that allows you to get a list of colors in an image. Here's the exact same example using a histogram to get a colorlist based on the picture.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_histogram_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_histogram.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/manipulate_histogram)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/manipulate_histogram)
 
 Of course you can do other fun stuff with the histogram, like drawing a background with colors based on the colors in the image.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_histogram_bg_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/manipulate_histogram_bg.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/manipulate_histogram_bg)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/manipulate_histogram_bg)
 
 
 From Pixels to Shapes
@@ -154,9 +154,9 @@ Now that we have the ability to manipulate pixels form an image, let's investiga
 Here's an example of using our basic tile pattern from last class, but extracting the pixel values from the image:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/pixels_triangles_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/pixels_triangles.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/pixels_triangles)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/pixels_triangles)
 
 Here's an example where we're taking last weeks cube pattern and using the pixel values to determine the color of the cubes:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/cube_pattern_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/transformation/cube_pattern.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetransformation/cube_pattern)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/code/transformation/cube_pattern)
