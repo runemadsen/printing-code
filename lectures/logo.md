@@ -113,12 +113,12 @@ Case: Security Forum
 This logo is extremely easy to recreate with sin() and cos().
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/security_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/security_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/logo/security)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codelogo/security)
 
 However, this code has a few problems. The biggest one is that the same dot can be picked over and over. We need to implement constraints to make the generative output a little cleaner:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/security_example_advanced_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/security_example_advanced.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/logo/security_advanced)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codelogo/security_advanced)
 
 
 Case: The MIT Logo
@@ -147,7 +147,7 @@ Each person at MIT can get his own logo. 40,000 permutations.
 Here's a Processing sketch that recreates the basic output of the MIT logo. A lot of the fine-tuning is left out, but it should give you an idea.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/mit_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/mit_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/logo/mit)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codelogo/mit)
 
 
 Case: Casa de Musica
@@ -180,7 +180,7 @@ Based on the building.
 Here's an example of how to approach this kind of logo in Processing:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/musica_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/musica_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/logo/musica)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codelogo/musica)
 
 What you'll see is that whenever you code something generative, the designer in you has to establish some kind of constraints in the code. Here the colors cannot be too similar to the background, nor should they be too similar inside the logo. Working in HSB would make it possible for you to handle the brightness if too big, small, etc.
 
@@ -203,12 +203,12 @@ Here's a dynamic identity Stefan Sagmeister made for the Seed Media Group, based
 Here is the form recreated in Processing.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/seed_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/seed_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/logo/seed)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codelogo/seed)
 	
 However, to grab the pixels from an image we need to know the bounds of the shape, and we can do this by creating a holder class and counting the size. We then normalize the positions and choose pixel colors from our sample image:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/seed_example2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/logo/seed_example2.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/logo/seed_class)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codelogo/seed_class)
 
 If you add a little randomness, we now have an organic logo:
 

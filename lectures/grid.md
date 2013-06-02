@@ -109,7 +109,7 @@ Int vs. Float
 Before we start diving into code examples, we need to clarify a simple thing about calculations in Processing. When we work with division of larger numbers into smaller numbers, it's important always to use floats instead of ints. Variables like `width` and `height` must also be cast into floats (by putting (float) in front of it). Why? This code example shows you why.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/wrong_calculations_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/wrong_calculations.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/wrong_calculations)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/wrong_calculations)
 
 
 Coding a Manuscript Grid
@@ -120,13 +120,13 @@ Coding a Manuscript Grid
 The simplest possible grid to make is a manuscript grid that only requires 4 variables: x,y,width,height to define the rectangle in which we place content.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_manuscript_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_manuscript_example.jpg" />
-[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/manuscript_grid_no_class)  
-[Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/manuscript_grid_class)
+[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/manuscript_grid_no_class)  
+[Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/manuscript_grid_class)
 
 Here's another example, where I'm placing circles inside the grid using the manuscript column.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/manuscript_grid_circles_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/manuscript_grid_circles.png" />
-[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/manuscript_grid_circles) 
+[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/manuscript_grid_circles) 
 
 A nice way of encapsulating these 4 variables is by creating a class that can keep track of them and hide them from the main file. He I've created a _Column_ class to hold the column values. Nothing else changed. By extracting the grid code into a class we can add convenient helper methods to that class without cluttering out main source file.
 
@@ -139,15 +139,15 @@ Coding a Column Grid
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_column_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_column.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_column_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_column_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/column_grid)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/column_grid)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_column_random_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_column_random_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/column_grid_random_placement)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/column_grid_random_placement)
 
 Here's the same circle example, just using the column grid code.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/column_grid_circles_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/column_grid_circles.png" />
-[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/column_grid_circles) 
+[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/column_grid_circles) 
 
 Coding a Modular Grid
 ---------------------
@@ -155,12 +155,12 @@ Coding a Modular Grid
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_example.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/modular_grid_simple)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/modular_grid_simple)
 
 Here's the same circle example, just using the modular grid.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/modular_grid_circles_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/modular_grid_circles.png" />
-[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/modular_grid_circles) 
+[Not Using Classes - Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/modular_grid_circles) 
 
 
 What is Used? What is Not?
@@ -169,7 +169,7 @@ What is Used? What is Not?
 The big problem is that we do not know what is used and what is not. If we randomly select a modules, we'll end up selecting the same module over and over. This can be solved by adding a "used" boolean to the module class and only selecting modules that are not used.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_no_overlap_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_no_overlap.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/modular_grid_no_overlap)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/modular_grid_no_overlap)
 
 
 Karl Gerstner's Flexible Grid
@@ -233,12 +233,12 @@ In code, it's amazingly easy to make something with multiple grids. Here's an ex
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_multiple_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_multiple.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_multiple2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_multiple2.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/grid_multiple)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/grid_multiple)
 
 Here's a pretty ugly example illustrating multiple grids:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_multiple_bruce_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_multiple_bruce.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/grid_multiple_bruce)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/grid_multiple_bruce)
 
 
 Random Grids
@@ -251,7 +251,7 @@ Until now we have only used randomness to place objects within a static grid. Bu
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_random2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_random2.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_random3_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/grid_modular_random3.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/modular_grid_random)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/modular_grid_random)
 
 
 We can also play around with the column grid so each column has a random width. This makes for some interesting outputs. The only slightly difficult think is calculating the normalized values of the columns.
@@ -261,7 +261,7 @@ We can also play around with the column grid so each column has a random width. 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_columns2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_columns2.jpg" />
 	
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_columns3_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_columns3.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/column_grid_random_columns)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/column_grid_random_columns)
 
 
 We have already looked at how we can choose random placements in a modular grid without ever picking the same module. But what if we want to have larger random areas that span across multiple modules? 
@@ -277,4 +277,4 @@ We have already looked at how we can choose random placements in a modular grid 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_grid2_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_grid2.jpg" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_grid3_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/grid/random_grid3.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/grid/modular_grid_no_overlap_random_size)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegrid/modular_grid_no_overlap_random_size)

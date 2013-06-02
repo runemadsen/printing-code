@@ -210,7 +210,7 @@ Processing ships with built-in font handling. To manipulate text, we need to kno
 One thing to note is that the red circle is at location 0,0. Processing text draw upwards on the y axis. This is called the baseline, and is often used as the basis of a grid system (which we'll look at next week).
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/measurements_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/measurements.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/font_measurements)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/font_measurements)
 
 
 Custom Rule-based fonts in Processing
@@ -223,24 +223,24 @@ When working in code, we do not want to plot all outline point manually. It's mu
 Let's say that you want to create a custom uppercase "H" with vertex points. You could just draw the character by plotting the points on the screen:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_beginshape_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_beginshape.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/font_beginshape)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/font_beginshape)
 
 However, this is not scalable. What if you want to draw "H" several places in different sizes? Then it's easier to normalize the numbers and scale them up when drawing.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_beginshape_normalized_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_beginshape_normalized.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/font_beginshape_normalized)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/font_beginshape_normalized)
 
 However, most of the really interesting computational typography leverages simple rules to compute the letters, instead of relying on the plotting of outline points.
 
 Here's the simplest possible font, made up by a 4x6 matrix:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/pixel_font_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/pixel_font.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/pixel_font)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/pixel_font)
 
 That seems a little silly. Here's a better, but still simple example of the word "meme", that is also scalable.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/meme_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/meme.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/meme)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/meme)
 
 However, making a rule-based font is much of the same process. Let's look at Peter Cho's pie font example again.
 
@@ -249,7 +249,7 @@ However, making a rule-based font is much of the same process. Let's look at Pet
 Here's a Processing sketch implementing the same rules. It really doesn't take much work.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/piefont_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/piefont.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/pie_segments_example)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/pie_segments_example)
 
 
 Geomerative
@@ -268,7 +268,7 @@ To solve these problems we will need to use the external library [Geomerative](h
 Here's a sketch that shows you the basics of drawing a font on the screen.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/geomerative_font_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/geomerative_font.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/geomerative_font)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/geomerative_font)
 
 But the RFont class can do much more than that. It's especially good for getting the outline of a font and playing around with it.
 
@@ -279,22 +279,22 @@ There are several ways you can access the outline of a font. The first one is by
 Here's a sketch that shows you how to do the first: Getting a reduced, static number of points from a font. The first sketch here shows you how to do it with a single letter. Notice how many loops we need, as a single RPolygon will always have an array of RContours that themselves have an array of RPoints.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/rfont_reduced_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/rfont_reduced.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/rfont_reduced)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/rfont_reduced)
 
 If you want to do this with more than one character, you will need an extra loop, as each polygon comes in an array of the RGroup.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/rfont_reduced_word_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/rfont_reduced_word.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/rfont_reduced_word)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/rfont_reduced_word)
 
 Now that we can access the reduced points of the outline, let's play around with them!
 	
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_to_points_dots_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_to_points_dots.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/font_to_points_dots)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/font_to_points_dots)
 	
 Here's that same code, but using beginShape to play around with the contours.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_to_points_generative_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/typography/font_to_points_generative.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/typography/font_to_points_generative)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codetypography/font_to_points_generative)
 
 **Non-Reduced Outlines**
 

@@ -26,7 +26,7 @@ Random Frame Saving
 First, let's look at how we can use millis() to randomize a frame grab.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/millis_example_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/millis_example.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/millis_example)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/millis_example)
 
 Here's an example where we use the same millis() code in a class, with the seed code from the logo class. These are the outputs from running the sketch 5 times.
 
@@ -39,7 +39,7 @@ Here's an example where we use the same millis() code in a class, with the seed 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/millis_movement4_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/millis_movement4.png" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/millis_movement5_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/millis_movement5.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/millis_movement)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/millis_movement)
 
 
 Easings
@@ -48,22 +48,22 @@ Easings
 Here's a simple example of how to create fluent motion with the [Ani easing library](http://www.looksgood.de/libraries/Ani/). Before we dive into it, let's look at the [easing sheet](http://www.looksgood.de/libraries/Ani/Ani_Cheat_Sheet.pdf)
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_simple_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_simple.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/easings_simple)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/easings_simple)
 
 Here's an example creating a repeating bouncing ball with the BOUNCE easing, and the onEnd callback.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_bounce_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_bounce.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/easings_bounce)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/easings_bounce)
 
 Here's the same example, but using a class and multiple objects created from the class.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_bounces_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_bounces.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/easings_bounces)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/easings_bounces)
 
 You can also chain multiple tweens together, in order to create an animation sequence. 
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_bounce_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_bounce.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/easings_sequence)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/easings_sequence)
 
 Here's a very simple sketch that demonstrates how you could actually use these easings to create a generative, graphic poster.
 
@@ -80,12 +80,12 @@ Here's a very simple sketch that demonstrates how you could actually use these e
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_poster6_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_poster6.png" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_poster7_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_poster7.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/easings_poster)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/easings_poster)
 
 If you're interested in exploring the different types of easings, this sketch will visualize all of them for you.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_viewer_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/easings_viewer.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/easings_viewer)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/easings_viewer)
 
 You can check out all the methods on the easings library by visiting the [Javadocs](http://www.looksgood.de/libraries/Ani/reference/index.html)
 
@@ -104,12 +104,12 @@ Daniel Shiffman has made a nice wrapper to the Box2D library (hello Angry Birds!
 Here's a simple sketch that shows the steps you need to take to create a "world" and some objects in that world.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_simple_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_simple.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/physics_simple)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/physics_simple)
 
 Here we added a boundary to the example.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_bounds_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_bounds.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/physics_bounds)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/physics_bounds)
 
 Now that we know how to create a world and make things fall, we can use this in our designs. Here's a sketch that uses the same technique to make a generate circle shape.
 
@@ -128,7 +128,7 @@ Now that we know how to create a world and make things fall, we can use this in 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_advanced7_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_advanced7.png" />
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_advanced8_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/physics_advanced8.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/physics_advanced)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/physics_advanced)
 
 
 ControlP5
@@ -139,12 +139,12 @@ A library related to the concept of motion, is the ControlP5 library. ControlP5 
 First of all, here's a very simple color picker sketch.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/controlp5_simple_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/controlp5_simple.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/controlp5_simple)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/controlp5_simple)
 
 So what can we use ControlP5 for? Well, here's an example of that cube pattern from the repetition class, where we use the controls to resize the pattern on the fly.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/controlp5_cube_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/motion/controlp5_cube.jpg" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/motion/controlp5_cube)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codemotion/controlp5_cube)
 
 A number of great examples of how to use the library can be found in the library examples folder.
 

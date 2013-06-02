@@ -23,21 +23,21 @@ However, it gets a little messy with all those variables. Exactly like we use PV
 The class you use to hold the values for shapes is called RShape. Here's an example that shows you how to draw simple shapes with an RShape, instead of Processing's drawing functions.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/basic_shapes_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/basic_shapes.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/basic_shapes)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/basic_shapes)
 
 But drawing ellipses and rectangles won't get us far. Remember beginShape() and endShape()? RShape is built to handle vertex and bezierVertices too! Here's an example where I draw the sample wobbly shape first using beginShape(), then using RShape: 
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/beginshape_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/beginshape.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/beginshape)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/beginshape)
 
 Notice how the RShape object has a draw() function that will draw the shape with the current fill and stroke in the current 0,0 position in Processing. To move it, you need to call translate before drawing it on screen.
 
 Now that we have an RShape that holds the vertices of our shape, we can do fun stuff with the shape, using some of the built-in RShape functions.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/drawing_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/drawing.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/drawing)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/drawing)
 
-There are many ways to create an RShape, and adding the vertices one by one is just one example. You've already seen that we can load an SVG image into an RShape, in the [Sigur Ros](https://github.com/runemadsen/printing-code/tree/master/class_code/homework/sigur_ros) assignment from last week.
+There are many ways to create an RShape, and adding the vertices one by one is just one example. You've already seen that we can load an SVG image into an RShape, in the [Sigur Ros](https://github.com/runemadsen/printing-code/tree/master/codehomework/sigur_ros) assignment from last week.
 
 	TODO: Adding multiple RPaths in an RShape
 
@@ -57,12 +57,12 @@ In the end, RShapes are made up by RPath objects, that themselves has an array o
 We can use this info to get the vertex points back from the RShape. Here's an example where I'm drawing small ellipses at the places where I placed points in the first place:
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rcommand_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rcommand.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/rcommand)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/rcommand)
 
 So what is an RCommand? Let's take a close look at a much simpler example. Here I'm creating a single RCommand object to draw a curved line.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rcommand_simple_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rcommand_simple.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/rcommand_simple)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/rcommand_simple)
 
 
 RPolygon > RContour > RPoint
@@ -73,7 +73,7 @@ Remember in the typography class where we converted a character to an RPolygon, 
 Here's an example where we do the exact same thing for an RShape 
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rshape_outline_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rshape_outline.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/rshape_outline)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/rshape_outline)
 
 Vectors and Direction
 ---------------------
@@ -83,12 +83,12 @@ When we looked at vectors last time, I said that a vector is basically just a x,
 This example demonstrates this by drawing 2 lines from the same vector.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rpoint_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/rpoint.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/rpoint)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/rpoint)
 
 If we were to demonstrate this in a real-world example, we could make a sketch where a bunch of flowers automatically choose a direction and a length, and dynamically draw themselves. This is a simple example of how that would look like.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/flowers_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/flowers.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/flowers)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/flowers)
 
 As you can see, a vector is really fundamental in computational geometry, as all shapes consists of vectors.
 
@@ -101,19 +101,19 @@ Remember that there are 2 different set of classes in Geomerative. One is an RSh
 Here's a simple example where I'm creating an RShape (a line) and converting to an RPolygon (also a line, but made up of a lot of points, instead of 2).
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/line_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/line.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/line)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/line)
 
 Let's look at a little bit more advanced example, where we'll be creating a small drawing of a house. First we'll create the house as an RShape, and then we'll convert it to an RPolygon to make it feel more like a line drawing.
 
 In the first session on Geomerative, we saw how to create a single wobbly form as an RShape. Here's an example where we draw house - a shape with more than one RPath's.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/house_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/house.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/house)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/house)
 
 Here's an example of how to convert our house to an outline, in order to simluate a hand-written line.
 
 <img src="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/house_wobbly_small.jpg" data-slideshow="http://runemadsen-2012.s3.amazonaws.com/printing-code-2012/geomerative/house_wobbly.png" />
-[Example on Github](https://github.com/runemadsen/printing-code/tree/master/class_code/geomerative/house_wobbly)
+[Example on Github](https://github.com/runemadsen/printing-code/tree/master/codegeomerative/house_wobbly)
 
 
 Helpful Functions

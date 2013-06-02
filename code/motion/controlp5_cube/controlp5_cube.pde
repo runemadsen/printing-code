@@ -14,7 +14,6 @@ void setup()
   size(1280, 800);
   background(255);
   smooth();
-  noStroke();
 
   cp5 = new ControlP5(this);
 
@@ -49,6 +48,7 @@ void draw()
   }
 
 	background(255);
+        noStroke();
 	drawPattern(0, 0, width + 100, height + 100, cubeSize);
 	drawPattern(0, 0, width + 100, height + 100, cubeSize*3);
 
