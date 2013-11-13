@@ -7,7 +7,9 @@ General
 * Delete "lectures" folder so this repo is only for code
 * Update all references to code examples, so they are passed through a single liquid function that adds the base URL
 * Add a bigger, nicer "Example on GitHub" button
-* Generally structure the classes like where they the book
+* Generally structure the classes like I want the book
+* Go through every single lecture and think about things I want to add.
+* Rewrite the lectures with a separate view that parses them into reveal.js markup and runs the slideshow. Also make images automatically load the high-res ones based on names.
 
 Intro
 -----
@@ -33,7 +35,7 @@ Typography
 * New example: https://vimeo.com/24358631
 * Add more about the basic use of typography (baseline designs, sizes, etc)
 * Talk more about Geomerative's RFont (scale, width, height, etc)
-* Add much more about Metafont
+* Add much more about Metafont. Use the metafont book for examples, quotes, etc.
 
 Logo
 ----
