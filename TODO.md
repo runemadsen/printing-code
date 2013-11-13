@@ -1,6 +1,20 @@
 TODO List
 =========
 
+General
+-------
+
+* Delete "lectures" folder so this repo is only for code
+* Update all references to code examples, so they are passed through a single liquid function that adds the base URL
+* Add a bigger, nicer "Example on GitHub" button
+* Generally structure the classes like where they the book
+
+Intro
+-----
+
+* Write a small talk that introduces the class to the subject. Talk about Gerstner, my Paul Rand examples, etc. Use slides from "Duality of New Media Art"
+* Add examples of Duality of New Media Art to end of history talk
+
 Form
 ----
 
@@ -9,7 +23,7 @@ Form
 Color
 -----
 
-* Explain the use of CIE LAB in TColor, and why to use it (for calculating perceived contrast, etc)
+* Make a broader introduction to what the different color modes are. Explain the use of CIE LAB in TColor, and why to use it (for calculating perceived contrast, etc)
 * Remove the HSBColor class from examples and just use Toxiclibs TColor
 * Show how TColor correctly converts minus values and big values into proper values in newHSV();
 
@@ -19,6 +33,7 @@ Typography
 * New example: https://vimeo.com/24358631
 * Add more about the basic use of typography (baseline designs, sizes, etc)
 * Talk more about Geomerative's RFont (scale, width, height, etc)
+* Add much more about Metafont
 
 Logo
 ----
