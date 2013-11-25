@@ -10,6 +10,7 @@ General
 * Generally structure the classes like I want the book
 * Go through every single lecture and think about things I want to add.
 * Rewrite the lectures with a separate view that parses them into reveal.js markup and runs the slideshow. Also make images automatically load the high-res ones based on names.
+* Viking ships as both function and aesthetic. Odessa ship.
 
 Intro
 -----
@@ -42,6 +43,7 @@ Logo
 
 * Add readings from Dynamic Identities book
 * New example: Plask and Roskilde, http://vimeo.com/27737392
+* New example: Sagmeister Engineering: http://www.sagmeisterwalsh.com/work/project/function-engineering/
 
 Randomization
 -------------
@@ -52,11 +54,14 @@ Reptition
 ---------
 
 * Port shape grammar from Fleen: https://code.google.com/p/fleen/
+* Add stuff about patterns from the symmetry book
 
 Motion
 ------
 
+* Rename to "Simulation"
 * Use “Simulate” chapter in Form and Code: Swarms, Genetic Algorithms, particles, ...
+* Use Karl Sims more: Galapagos, evolving creatures, etc.
 
 Transformation
 --------------
