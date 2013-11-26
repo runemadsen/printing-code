@@ -16,6 +16,7 @@ Intro
 -----
 
 * Write a small talk that introduces the class to the subject. Talk about Gerstner, my Paul Rand examples, etc. Use slides from "Duality of New Media Art"
+* Add Donald Knuth's idea of MetaDesign in there. It's harder than design. To not just do it, but write how to do it. P. 14 metafont book.
 * Add examples of Duality of New Media Art to end of history talk
 
 Form
