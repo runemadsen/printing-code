@@ -22,6 +22,8 @@ void setup()
   beginRecord(PDF, "grab.pdf"); 
   background(30);
   smooth();
+  strokeWeight(4);
+  stroke(255);
   fill(255, 0, 0); 
   ellipse(width / 2, height / 2, 400, 400); 
   
