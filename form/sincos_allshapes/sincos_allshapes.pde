@@ -1,45 +1,23 @@
 void setup()
 {
-  size(1280, 800);
-  background(255); 
-  smooth();
-  noStroke();
-  
-  // draw triangle
-  drawShape(3, width * 0.25, height * 0.25);
-
-  // draw rectangle
-  drawShape(4, width * 0.75, height * 0.25);
-
-  // draw hexagon
-  drawShape(6, width * 0.25, height * 0.75);
-
-  // draw circle
-  drawShape(50, width * 0.75, height * 0.75);  
-}
-
-void drawShape(int numVertices, float x, float y)
-{
-  pushMatrix();
-  translate(x, y);
-  
+  size(600, 850);
+  background(255);
+  translate(width/2, 125);
   fill(30);
-  
-  float vertexDegree = 360 / numVertices;
-  float shapeRadius = 150;
-  
-  beginShape();
-  for(int i = 0; i < numVertices; i++)
+
+  int[] points = {3, 4, 6, 40};
+
+  for (int i = 0; i < points.length; i++)
   {
-    float vertexX = cos(radians(i * vertexDegree)) * shapeRadius;
-    float vertexY = sin(radians(i * vertexDegree)) * shapeRadius;
-    vertex(vertexX, vertexY);
+    beginShape();
+    for (int j = 0; j < points[i]; j++)
+    {
+      float vertexX = cos(radians(j * (360/points[i]))) * 100;
+      float vertexY = sin(radians(j * (360/points[i]))) * 100;
+      vertex(vertexX, vertexY);
+    }
+    endShape();
+    translate(0, 200);
   }
-  endShape();
-  
-  
-  // draw the center point
-  fill(255, 0, 0);
-  ellipse(0, 0, 15, 15);
-  popMatrix();
 }
+
