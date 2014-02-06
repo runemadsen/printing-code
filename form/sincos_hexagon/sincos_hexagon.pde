@@ -10,7 +10,7 @@ void setup()
   // draw the hexagon
   fill(30);
   
-  float numVertices = 60;
+  float numVertices = 6;
   float vertexDegree = 360 / numVertices;
   float shapeRadius = 300;
   
@@ -18,7 +18,7 @@ void setup()
   for(int i = 0; i < numVertices; i++)
   {
     float x = cos(radians(i * vertexDegree)) * shapeRadius;
-    float y = sin(radians(i * vertexDegree)) * shapeRadius/2;
+    float y = sin(radians(i * vertexDegree)) * shapeRadius;
     vertex(x, y);
   }
   endShape();
