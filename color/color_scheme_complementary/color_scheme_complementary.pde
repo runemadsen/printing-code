@@ -1,19 +1,29 @@
+import toxi.color.*;
+import toxi.color.theory.*;
+import toxi.util.datatypes.*;
+
 void setup()
 {
   size(1280, 800);
-  colorMode(HSB, 360, 100, 100);
-  background(360);
+  colorMode(HSB, 1, 1, 1);
+  background(1);
+
+  int rectSize = 400;
   
-  // first pick base color
-  HSBColor color1 = new HSBColor(random(360), random(100), 100);
-  
-  // then pick opposite color with smart little trick.
-  int complimentaryHue = (color1.h + 180) % 360;
-  HSBColor color2 = new HSBColor(complimentaryHue, color1.s, color1.b);
+  // first pick red base color
+  TColor color1 = TColor.newHSV(random(1), random(1), 1);
+
+  // then pick opposite color
+  TColor color2 = new TColor(color1);
+  color2.adjustHSV(0.5, 0, 0);
   
   // then we draw them on the screen
-  int rectSize = 400;
+  noStroke();
   translate(240, 200);
-  color1.display(0, 0, rectSize, rectSize);
-  color2.display(rectSize, 0, rectSize, rectSize);
+
+  fill(color1.hue(), color1.saturation(), color1.brightness());
+  rect(0, 0, rectSize, rectSize); 
+
+  fill(color2.hue(), color2.saturation(), color2.brightness());
+  rect(rectSize, 0, rectSize, rectSize); 
 }

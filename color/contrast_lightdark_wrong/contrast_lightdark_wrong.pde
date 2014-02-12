@@ -17,7 +17,6 @@ void setup()
   for(int i = 0; i < steps; i++)
   {
     float bright = start + (stop-start) / (steps - 1) * i;
-    println(bright);
     fill(0, 0, bright);
     rect(i * rectWidth, 0, rectWidth, rectHeight);
   }

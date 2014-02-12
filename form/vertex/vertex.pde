@@ -1,4 +1,4 @@
-int sideLength = 100;
+int sideLength = 200;
 
 void setup()
 {
@@ -10,10 +10,10 @@ void setup()
   translate((width / 2), (height / 2));
  
   beginShape();
-  vertex(-sideLength, -sideLength);
-  vertex(0, -sideLength*2);
-  vertex(sideLength, -sideLength);
-  vertex(sideLength, sideLength);
-  vertex(-sideLength, sideLength);
+  curveVertex(-sideLength, -sideLength);
+  curveVertex(0, -sideLength*2);
+  curveVertex(sideLength, -sideLength);
+  curveVertex(sideLength, sideLength);
+  curveVertex(-sideLength, sideLength);
   endShape();
 }

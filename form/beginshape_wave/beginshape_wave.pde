@@ -7,7 +7,6 @@ void setup()
   fill(0);
   
   beginShape();
-  translate(125, 35);
   vertex(0, 50);
   bezierVertex(0, 50, 25, 0, 50, 50);
   bezierVertex(50, 50, 75, 100, 100, 50);

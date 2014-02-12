@@ -1,20 +1,24 @@
+import toxi.color.*;
+import toxi.color.theory.*;
+import toxi.util.datatypes.*;
+
 void setup()
 {
   size(1280, 800);
-  colorMode(HSB, 360, 100, 100);
-  background(360);
+  colorMode(HSB, 1, 1, 1);
+  background(1);
   
   float blueValue = 4;
-  HSBColor colorBlue = new HSBColor(240, 100, 100);
+  TColor colorBlue = TColor.newHSV(240f/360f, 1, 1);
   
   float orangeValue = 8;
-  HSBColor colorOrange = new HSBColor(30, 100, 100);
+  TColor colorOrange = TColor.newHSV(30f/360f, 1, 1);
   
   float violetValue = 3;
-  HSBColor colorViolet = new HSBColor(300, 100, 100);
+  TColor colorViolet = TColor.newHSV(300f/360f, 1, 1);
   
   float yellowValue = 9;
-  HSBColor colorYellow = new HSBColor(60, 100, 100);
+  TColor colorYellow = TColor.newHSV(60f/360f, 1, 1);
   
   int rectHeight = 200;
   
@@ -26,8 +30,13 @@ void setup()
   float blueRatio = 1 + (blueValue / orangeValue); // yields 1.5
   float blueWidth = fullWidth / blueRatio;
   
-  colorBlue.display(0, 0, blueWidth, rectHeight);
-  colorOrange.display(blueWidth, 0, fullWidth - blueWidth, rectHeight);
+  noStroke();
+
+  fill(colorBlue.hue(), colorBlue.saturation(), colorBlue.brightness());
+  rect(0, 0, blueWidth, rectHeight);
+
+  fill(colorOrange.hue(), colorOrange.saturation(), colorOrange.brightness());
+  rect(blueWidth, 0, fullWidth - blueWidth, rectHeight);
   
   translate(0, 300);
   
@@ -35,7 +44,10 @@ void setup()
   // be three times as big.
   float violetRatio = 1 + (violetValue / yellowValue);
   float violetWidth = fullWidth / violetRatio;
+
+  fill(colorViolet.hue(), colorViolet.saturation(), colorViolet.brightness());
+  rect(0, 0, violetWidth, rectHeight);
   
-  colorViolet.display(0, 0, violetWidth, rectHeight);
-  colorYellow.display(violetWidth, 0, fullWidth - violetWidth, rectHeight);
+  fill(colorYellow.hue(), colorYellow.saturation(), colorYellow.brightness());
+  rect(violetWidth, 0, fullWidth - violetWidth, rectHeight);
 }
