@@ -8,16 +8,14 @@ void setup()
   int rectWidth = 100;
   int rectHeight = 400;
   
-  float steps = 10;
   float start = 10;
   float stop = 90;
   
   translate(100, 200);
   
-  for(int i = 0; i < steps; i++)
+  for(int i = 0; i < 10; i++)
   {
-    float bright = start + (stop-start) / (steps - 1) * i;
-    fill(0, 0, bright);
+    fill(0, 0, i * 10);
     rect(i * rectWidth, 0, rectWidth, rectHeight);
   }
 }
