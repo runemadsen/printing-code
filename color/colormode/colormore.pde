@@ -1,6 +1,3 @@
-import toxi.color.*;
-import toxi.util.datatypes.*;
-
 void setup() 
 {
   size(1280, 800);
