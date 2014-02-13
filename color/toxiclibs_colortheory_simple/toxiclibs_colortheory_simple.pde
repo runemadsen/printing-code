@@ -41,9 +41,9 @@ void setup()
   ColorList moreColors = new ColorRange(colors).getColors(null, 50, 0.05);
 
   // draw the 50 colors randomly on the screen
-  for (Iterator j = moreColors.iterator(); j.hasNext();)
+  for(int i = 0; i < moreColors.size(); i++)
   {
-    TColor c = (TColor) j.next();
+    TColor c = moreColors.get(i);
     fill(c.hue(), c.saturation(), c.brightness());
     ellipse(random(width), random(height), 50, 50);
   }

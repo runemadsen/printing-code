@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import toxi.color.*;
 import toxi.color.theory.*;
 import toxi.util.datatypes.*;
@@ -26,13 +27,13 @@ void setup()
   TColor col = ColorRange.DARK.getColor();
   
   // then get a list of all the different color scheme strategies (complementary, tetrad, etc)
-  ArrayList strategies = ColorTheoryRegistry.getRegisteredStrategies();
+  ArrayList<ColorTheoryStrategy> strategies = ColorTheoryRegistry.getRegisteredStrategies();
   
   // loop through all strategies
-  for (Iterator i=strategies.iterator(); i.hasNext();) 
+  for(int i = 0; i < strategies.size(); i++)
   {
     // get the strategy
-    ColorTheoryStrategy s = (ColorTheoryStrategy) i.next();
+    ColorTheoryStrategy s = strategies.get(i);
     
     // get a color list with colors for this strategy and the specific color
     ColorList colors = ColorList.createUsingStrategy(s, col);
@@ -45,9 +46,10 @@ void setup()
     
     int themeRectSize = 45;
     int xPos = 0;
-    for (Iterator j = colors.iterator(); j.hasNext();) 
+
+    for(int j = 0; j < colors.size(); j++)
     {
-      TColor c = (TColor) j.next();
+      TColor c = colors.get(j);
       fill(c.hue(), c.saturation(), c.brightness());
       rect(xPos, 0, themeRectSize, themeRectSize);
       xPos += themeRectSize;
@@ -59,9 +61,9 @@ void setup()
     
     xPos = 350;
     int moreEllipseSize = 30;
-    for (Iterator j = moreColors.iterator(); j.hasNext();) 
+    for(int j = 0; j < moreColors.size(); j++)
     {
-      TColor c = (TColor) j.next();
+      TColor c = moreColors.get(j);
       fill(c.hue(), c.saturation(), c.brightness());
       ellipse(xPos, 20, moreEllipseSize, moreEllipseSize);
       xPos += moreEllipseSize / 2;

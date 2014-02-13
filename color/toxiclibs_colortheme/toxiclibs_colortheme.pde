@@ -40,8 +40,9 @@ void setup()
   translate(100, 200);
   int xPos = 0;
   
-  for (Iterator i = randomList.iterator(); i.hasNext();) {
-    TColor c = (TColor) i.next();
+  for(int i = 0; i < randomList.size(); i++)
+  {
+    TColor c = randomList.get(i);
     fill(c.hue(), c.saturation(), c.brightness());
     rect(xPos, 0, rectSize, rectSize);
     xPos += rectSize + spacing;

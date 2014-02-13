@@ -25,11 +25,12 @@ void setup()
   // note that you can go above the width of the gradient
   translate((width / 2) - (gradientWidth / 2), (height / 2) - (gradientHeight / 2));
   
-  ColorList l= gradient.calcGradient(0, gradientWidth);
+  ColorList colors = gradient.calcGradient(0, gradientWidth);
   int xPos = 0;
-  for(Iterator i=l.iterator(); i.hasNext();) 
+
+  for(int i = 0; i < colors.size(); i++)
   {
-    TColor c = (TColor)i.next();
+    TColor c = colors.get(i);
     stroke(c.hue(), c.saturation(), c.brightness());
     line(xPos, 0, xPos, gradientHeight);
     xPos++;

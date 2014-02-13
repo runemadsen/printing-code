@@ -61,8 +61,9 @@ void drawColors(ColorList colors)
 {
   int xPos = 0;
   
-  for (Iterator i = colors.iterator(); i.hasNext();) {
-    TColor c = (TColor) i.next();
+  for(int i = 0; i < colors.size(); i++)
+  {
+    TColor c = colors.get(i);
     fill(c.hue(), c.saturation(), c.brightness());
     rect(xPos, 0, rectSize, rectSize);
     xPos += rectSize + spacing;
