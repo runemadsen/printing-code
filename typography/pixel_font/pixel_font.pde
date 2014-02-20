@@ -58,7 +58,7 @@ void setup()
   }
   popMatrix();
   
-  // draw normal letters
+  // draw jumping letters
   pushMatrix();
   translate(400 + (blockSize/2), 450);
   rectMode(CENTER);

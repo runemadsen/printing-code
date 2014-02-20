@@ -27,7 +27,7 @@ void setup()
   //RCommand.setSegmentator(RCommand.ADAPTATIVE); 
 
   // get a polygon from a single character.
-  RPolygon polygon = font.toGroup('a');
+  RPolygon polygon = font.toPolygon('a');
 
   // because a character has multiple contours (the whole in the 'a' is one, the outline another),
   // let's loop through all the contours first
