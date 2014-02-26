@@ -29,6 +29,4 @@ void setup()
   
   // we can even implement a function that draws the grid for us
   grid.display();
-  
-  saveFrame("grab.png");
 }

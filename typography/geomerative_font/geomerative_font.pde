@@ -15,5 +15,6 @@ void setup()
   RFont font = new RFont("FreeSans.ttf", fontSize, RFont.LEFT);
 
   translate(100, 400);
+  fill(255, 0, 0);
   font.draw("Hello World!");
 }
