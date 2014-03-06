@@ -42,7 +42,5 @@ void setup()
      startDot = endDot;
      endDot = int(random(numDots));
   }
-  
-  saveFrame("grab.png");
 }
 

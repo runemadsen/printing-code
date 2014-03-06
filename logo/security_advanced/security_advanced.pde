@@ -42,8 +42,6 @@ void setup()
      startDot = endDot;
      endDot = randomDotOnOppositeSide(startDot);
   }
-  
-  saveFrame("grab.png");
 }
 
 int randomDotOnOppositeSide(int curDot)

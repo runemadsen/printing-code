@@ -49,7 +49,7 @@ void setup()
 			// then translate to the module position
 			translate(first.x, first.y);
 
-			// then scale the shape beto the module before drawing it
+			// then scale the shape before drawing it
 			head.scale(first.w / head.width);
 
 			// remember, that you can make the shape span 2 modules by doing this:
