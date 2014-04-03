@@ -16,6 +16,4 @@ void setup()
   PVector start = new PVector(1100, 200);
   PVector end = new PVector(500, 750);
   line(start.x, start.y, end.x, end.y);
-
-  saveFrame("vectors.png");
 }

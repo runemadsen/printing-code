@@ -31,7 +31,7 @@ float[][] letters = {
 };
 
 // if we want the letters smaller than 300, let's multiply their numbers by this float
-float scaling = 0.52;
+float scaling = 0.55;
 
 void setup()
 {
