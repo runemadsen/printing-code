@@ -3,19 +3,20 @@ import controlP5.*;
 ControlP5 cp5;
 ColorPicker cp;
 
+int backgroundColor = 100;
+
 void setup()
 {
   size(1280, 800);
   background(255);
   smooth();
-  colorMode(HSB, 1, 1, 1);
   noStroke();
 
   cp5 = new ControlP5(this);
-  cp = cp5.addColorPicker("picker").setPosition(0, 0).setColorValue(color(0, 1, 0.5));
+  cp5.addSlider("backgroundColor").setPosition(100, 100).setRange(0, 255);
 }
 
 void draw()
 {
-  background(cp.getColorValue());
+  background(backgroundColor);
 }
