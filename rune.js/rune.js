@@ -5255,13 +5255,18 @@ function appendPatch(apply, patch) {
 
     var params = _.defaults(options || {}, {
       width: 640,
-      height: 480
+      height: 480,
+      debug: false,
+      frameRate: 60
     });
 
     this.width = params.width;
     this.height = params.height;
     this.renderer = new Rune.Render(params);
     this.stage = new Rune.Group();
+    this.debug = params.debug;
+    this.frameCount = 1;
+    this.frameRate = params.frameRate;
 
     if(params.container) {
 
@@ -5275,6 +5280,8 @@ function appendPatch(apply, patch) {
         console.error("Container element not found");
       }
     }
+
+    this.initEvents();
   }
 
   Rune.DRAW = "draw";
@@ -5293,6 +5300,24 @@ function appendPatch(apply, patch) {
 
 
   _.extend(Rune.prototype, {
+
+    // Events
+    // --------------------------------------------------
+
+    initEvents : function() {
+      this.initMouseMove();
+    },
+
+    initMouseMove : function() {
+      var mouseMove = _.bind(function(e) {
+        var bounds = this.renderer.el.getBoundingClientRect();
+        this.trigger('mousemove', {
+          x: e.pageX - bounds.left,
+          y: e.pageY - bounds.top
+        });
+      }, this);
+      document.addEventListener('mousemove', mouseMove, false);
+    },
 
     // Shape functions
     // --------------------------------------------------
@@ -5343,7 +5368,12 @@ function appendPatch(apply, patch) {
     // --------------------------------------------------
 
     play: function() {
-      this.trigger(Rune.DRAW);
+      if(this.frameRate >= 60)  this.playNow();
+      else                      setTimeout(_.bind(this.playNow, this), 1000 / this.frameRate);
+    },
+
+    playNow: function() {
+      this.trigger(Rune.DRAW, { frameCount: this.frameCount });
       this.animationFrame = requestAnimationFrame(_.bind(this.play, this));
       this.draw();
     },
@@ -5365,7 +5395,8 @@ function appendPatch(apply, patch) {
     },
 
     draw: function() {
-      this.renderer.render(this.stage);
+      this.renderer.render(this.stage, { debug: this.debug });
+      this.frameCount += 1;
     },
 
     // Utils
@@ -5426,14 +5457,14 @@ var Moveable = Rune.Moveable = {
   },
 
   rotate: function(deg, x, y, relative) {
-    if(relative) {
-      this.vars.rotation += deg;
-      this.vars.rotationX += x;
-      this.vars.rotationY += y;
-    } else {
-      this.vars.rotation = deg;
+    this.vars.rotation = deg;
+    if(x) {
       this.vars.rotationX = x;
       this.vars.rotationY = y;
+    }
+    if(relative) {
+      this.vars.rotationX += this.vars.x;
+      this.vars.rotationY += this.vars.y;
     }
     return this;
   }
@@ -5466,9 +5497,18 @@ var Sizeable = Rune.Sizeable = {
 var Styleable = Rune.Styleable = {
 
   styleable: function(copy) {
+
     this.vars = this.vars || {};
-    this.vars.fill = copy ? copy.vars.fill.clone() : new Color().rgb(128, 128, 128);
-    this.vars.stroke = copy ? copy.vars.stroke.clone() : new Color().rgb(0, 0, 0);
+    this.vars.fill = new Color().rgb(128, 128, 128);
+    this.vars.stroke = new Color().rgb(0, 0, 0);
+
+    if(copy) {
+      if(copy.vars.fill === false)  this.vars.fill = false;
+      else if(copy.vars.fill)       this.vars.fill = copy.vars.fill.clone();
+
+      if(copy.vars.stroke === false)  this.vars.stroke = false;
+      else if(copy.vars.stroke)       this.vars.stroke = copy.vars.stroke.clone();
+    }
   },
 
   fill: function(a, b, c, d) {
@@ -5517,8 +5557,7 @@ var Styleable = Rune.Styleable = {
     trigger: function(name) {
       if (this._events && this._events[name]) {
         var theseEvents = this._events[name];
-        var args = (arguments.length > 1) ? arguments[1] : [];
-
+        var args = (arguments.length > 1) ? [arguments[1]] : [];
         var i = theseEvents.length;
         while (i--) {
           theseEvents[i].apply(this, args);
@@ -5538,13 +5577,24 @@ var Styleable = Rune.Styleable = {
     // for Rune, while using Color.js objects. It takes
     // the input for any color functions and return a color
     // object.
-    inputToColor: function(a, b, c, d) {
-      if(a == Rune.HSB)
-        return new Color({h:b, s:c, v:d});
-      else if(_.isString(a))
-        return new Color(a);
-      else
-        return new Color({r:a, g:b, b:c});
+    inputToColor: function(a, b, c, d, e) {
+
+      var color;
+
+      if(a == Rune.HSB) {
+        color = new Color({h:b, s:c, v:d});
+        if(e) color.alpha(e);
+      }
+      else if(_.isString(a)) {
+        color = new Color(a);
+        if(b) color.alpha(b);
+      }
+      else {
+        color = new Color({r:a, g:b, b:c});
+        if(d) color.alpha(d);
+      }
+
+      return color;
     }
 
   };
@@ -5654,25 +5704,31 @@ var Styleable = Rune.Styleable = {
 
     setCurve: function(a, b, c, d, e, f, g) {
 
-      if(a == Rune.QUAD) {
-        this.command = Rune.QUAD;
-        this.vec1 = new Rune.Vector(b, c);
-        if(_.isNumber(d)) {
-          this.vec2 = new Rune.Vector(d, e);
-          if(f) this.relative = true;
-        } else {
-          if(d) this.relative = true;
-        }
-      } else {
+      // if we have 6 or more arguments, we create
+      // a cubic bezier with 2 control points.
+      if(!_.isUndefined(f)) {
         this.command = Rune.CUBIC;
         this.vec1 = new Rune.Vector(a, b);
         this.vec2 = new Rune.Vector(c, d);
-        if(_.isNumber(e)) {
-          this.vec3 = new Rune.Vector(e, f);
-          if(g) this.relative = true;
-        } else {
-          if(e === true) this.relative = true;
-        }
+        this.vec3 = new Rune.Vector(e, f);
+        if(g === true)  this.relative = true;
+      }
+
+      // else if we have 4 or more arguments, we create
+      // a quad bezier with 1 control point.
+      else if(!_.isUndefined(d)) {
+        this.command = Rune.QUAD;
+        this.vec1 = new Rune.Vector(a, b);
+        this.vec2 = new Rune.Vector(c, d);
+        if(e === true)  this.relative = true;
+      }
+
+      // else we create an automatic quad bezier
+      // with no control points.
+      else {
+        this.command = Rune.QUAD;
+        this.vec1 = new Rune.Vector(a, b);
+        if(c === true)  this.relative = true;
       }
 
       return this;
@@ -5703,12 +5759,12 @@ var Styleable = Rune.Styleable = {
 
   _.extend(Render.prototype, {
 
-    render: function(stage) {
+    render: function(stage, opts) {
 
       var newTree = virtualdom.svg('svg', {
         width: this.params.width,
         height: this.params.height
-      }, [this.objectsToSVG(stage.children)]);
+      }, [this.objectsToSVG(stage.children, opts)]);
 
       var diff = virtualdom.diff(this.tree, newTree);
       this.el = virtualdom.patch(this.el, diff);
@@ -5718,15 +5774,18 @@ var Styleable = Rune.Styleable = {
     // Shape converters
     // --------------------------------------------------
 
-    objectToSVG: function(object) {
+    objectToSVG: function(object, opts) {
       if(this[object.type + "ToSVG"])
-        return this[object.type + "ToSVG"](object);
+        return this[object.type + "ToSVG"](object, opts);
       else
         console.error("Rune.Render: Object not recognized", object)
     },
 
-    objectsToSVG: function(objects) {
-      return _.map(objects, _.bind(this.objectToSVG, this));
+    objectsToSVG: function(objects, opts) {
+      var objects = _.map(objects, _.bind(function(object) {
+        return this.objectToSVG(object, opts);
+      }, this));
+      return _.flatten(objects, true);
     },
 
     groupToSVG: function(group) {
@@ -5793,12 +5852,58 @@ var Styleable = Rune.Styleable = {
       return virtualdom.svg('polygon', attr);
     },
 
-    pathToSVG: function(path) {
+    pathToSVG: function(path, opts) {
       var attr = {};
       this.dAttribute(path, attr);
       this.transformAttribute(attr, path);
       this.styleableAttributes(path, attr);
-      return virtualdom.svg('path', attr);
+
+      var els = [
+        virtualdom.svg('path', attr)
+      ];
+
+      if(opts && opts.debug) els = els.concat(this.debugPathToSVG(path));
+      return els;
+    },
+
+    // Debug
+    // --------------------------------------------------
+
+    debugPathToSVG: function(path) {
+
+      var t = this;
+      var els = [];
+
+      _.each(path.vars.anchors, function(a, i) {
+        if(a.command == Rune.CUBIC){
+          els.push(t.debugLine(path.vars.x + a.vec1.x, path.vars.y + a.vec1.y, path.vars.x + a.vec3.x, path.vars.y + a.vec3.y));
+          els.push(t.debugLine(path.vars.x + a.vec2.x, path.vars.y + a.vec2.y, path.vars.x + a.vec3.x, path.vars.y + a.vec3.y));
+          for(var i = 1; i < 4; i++) {
+            els.push(t.debugCircle(path.vars.x + a["vec"+i].x, path.vars.y + a["vec"+i].y))
+          }
+        }
+        else if(a.command == Rune.QUAD && !_.isUndefined(a.vec2)){
+          els.push(t.debugLine(path.vars.x + a.vec1.x, path.vars.y + a.vec1.y, path.vars.x + a.vec2.x, path.vars.y + a.vec2.y));
+          for(var i = 1; i < 3; i++) {
+            els.push(t.debugCircle(path.vars.x + a["vec"+i].x, path.vars.y + a["vec"+i].y))
+          }
+        }
+      });
+
+      return els;
+    },
+
+    debugCircle : function(x, y) {
+      var c = new Rune.Circle(x, y, 4)
+        .fill(212, 18, 229)
+        .stroke(false);
+      return this.circleToSVG(c);
+    },
+
+    debugLine : function(x1, y1, x2, y2) {
+      var l = new Rune.Line(x1, y1, x2, y2)
+        .stroke(212, 18, 229);
+      return this.lineToSVG(l);
     },
 
     // Mixin converters
@@ -5810,9 +5915,14 @@ var Styleable = Rune.Styleable = {
     },
 
     styleableAttributes: function(object, attr) {
-      if(object.vars.fill)              attr.fill = object.vars.fill.hexString();
-      if(object.vars.stroke)            attr.stroke = object.vars.stroke.hexString();
-      if(object.vars.fill)              attr.fill = object.vars.fill.hexString();
+
+      if(object.vars.fill === false)    attr.fill = "none";
+      else if(object.vars.fill)         attr.fill = object.vars.fill.rgbString();
+
+      if(object.vars.stroke === false)  attr.stroke = "none";
+      else if(object.vars.stroke)       attr.stroke = object.vars.stroke.rgbString();
+
+      if(object.vars.fill)              attr.fill = object.vars.fill.rgbString();
       if(object.vars.strokeWidth)       attr["stroke-width"] = object.vars.strokeWidth;
       if(object.vars.strokeCap)         attr["stroke-linecap"] = object.vars.strokeCap;
       if(object.vars.strokeJoin)        attr["stroke-linejoin"] = object.vars.strokeJoin;
@@ -5840,7 +5950,8 @@ var Styleable = Rune.Styleable = {
         strings.push("translate(" + vars.x + " " + vars.y + ")");
       }
 
-      attr.transform = strings.join(" ").trim();
+      if(strings.length > 0)
+        attr.transform = strings.join(" ").trim();
     },
 
     dAttribute: function(object, attr) {
@@ -5852,11 +5963,8 @@ var Styleable = Rune.Styleable = {
         else if(a.command == Rune.LINE) {
           return (a.relative ? "l" : "L") + " " + [a.vec1.x, a.vec1.y].join(' ');
         }
-        else if(a.command == Rune.CUBIC && !_.isUndefined(a.vec3)){
-          return (a.relative ? "c" : "C") + " " + [a.vec1.x, a.vec1.y, a.vec2.x, a.vec2.y, a.vec3.x, a.vec3.y].join(' ');
-        }
         else if(a.command == Rune.CUBIC){
-          return (a.relative ? "s" : "S") + " " + [a.vec1.x, a.vec1.y, a.vec2.x, a.vec2.y].join(' ');
+          return (a.relative ? "c" : "C") + " " + [a.vec1.x, a.vec1.y, a.vec2.x, a.vec2.y, a.vec3.x, a.vec3.y].join(' ');
         }
         else if(a.command == Rune.QUAD && !_.isUndefined(a.vec2)){
           return (a.relative ? "q" : "Q") + " " + [a.vec1.x, a.vec1.y, a.vec2.x, a.vec2.y].join(' ');
