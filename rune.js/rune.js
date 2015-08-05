@@ -5154,7 +5154,7 @@ var Styleable = Rune.Styleable = {
 
     // HSB
     if(a == Rune.HSB) {
-      this.setValues("hsv", {h:b, s:c, v:d});
+      this.setValues("hsv", {h:b % 360, s:c, v:d});
       if(e) this.setValues("alpha", e);
     }
 
