@@ -5581,14 +5581,22 @@ var Styleable = Rune.Styleable = {
 
       var color;
 
+      // HSB
       if(a == Rune.HSB) {
         color = new Color({h:b, s:c, v:d});
         if(e) color.alpha(e);
       }
+      // HEX
       else if(_.isString(a)) {
         color = new Color(a);
         if(b) color.alpha(b);
       }
+      // GRAYSCALE
+      else if(_.isUndefined(c)) {
+        color = new Color({r:a, g:a, b:a});
+        if(b) color.alpha(b);
+      }
+      // RGB
       else {
         color = new Color({r:a, g:b, b:c});
         if(d) color.alpha(d);
