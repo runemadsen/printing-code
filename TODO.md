@@ -2,3 +2,4 @@
 - Chaining
 - Using the web developer
 - Groups and stage graph
+- HWB (whitening is not the complement of blackening)

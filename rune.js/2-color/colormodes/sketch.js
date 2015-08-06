@@ -21,6 +21,6 @@ r.rect(0, 0, 250, r.height)
 // Brightness:  0-100
 
 r.rect(250, 0, 250, r.height)
-  .fill(Rune.HSB, 120, 100, 100);
+  .fill(Rune.HSV, 120, 100, 100);
 
 r.draw();

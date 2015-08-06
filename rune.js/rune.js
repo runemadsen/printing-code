@@ -4853,7 +4853,7 @@ function appendPatch(apply, patch) {
 
   Rune.DRAW = "draw";
   Rune.RGB = "rgb";
-  Rune.HSB = "hsb";
+  Rune.HSV = "hsv";
   Rune.MOVE = "move"
   Rune.LINE = "line"
   Rune.CUBIC = "cubic"
@@ -5152,8 +5152,13 @@ var Styleable = Rune.Styleable = {
       alpha: 1
     }
 
+    // COLOR
+    if(a instanceof Rune.Color) {
+      return a;
+    }
+
     // HSB
-    if(a == Rune.HSB) {
+    else if(a == Rune.HSV) {
       this.setValues("hsv", {h:b % 360, s:c, v:d});
       if(e) this.setValues("alpha", e);
     }
