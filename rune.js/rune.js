@@ -4931,6 +4931,12 @@ function appendPatch(apply, patch) {
       return path;
     },
 
+    grid: function(options, parent) {
+      var grid = new Rune.Grid(options);
+      Rune.addToGroup(grid, this.stage, parent);
+      return grid;
+    },
+
     // Playhead
     // --------------------------------------------------
 
@@ -5642,6 +5648,102 @@ var Styleable = Rune.Styleable = {
 })(Rune);
 (function(Rune) {
 
+  // Constructor
+  // --------------------------------------------------
+
+  var Grid = Rune.Grid = function(options) {
+
+    this.moveable();
+    this.modules = [];
+
+    var req = _.defaults(options || {}, {
+      x:0,
+      y:0,
+      columns:10,
+      rows:1,
+      gutterX: 0,
+      gutterY: 0,
+      moduleWidth:50,
+      moduleHeight:500
+    });
+
+    // if gutter is set, override gutterX and gutterY
+    if(!_.isUndefined(req.gutter)) {
+      req.gutterX = req.gutter;
+      req.gutterY = req.gutter;
+    }
+
+    // if width is set, override moduleWidth
+    if(!_.isUndefined(req.width)) {
+      req.moduleWidth = (req.width - ((req.columns-1) * req.gutterX)) / req.columns;
+    } else {
+      req.width = (req.moduleWidth * req.columns) + (req.gutterX * (req.columns-1))
+    }
+
+    // if height is set, override moduleWidth
+    if(!_.isUndefined(req.height)) {
+      req.moduleHeight = (req.height - ((req.rows-1) * req.gutterY)) / req.rows;
+    } else {
+      req.height = (req.moduleHeight * req.rows) + (req.gutterY * (req.rows-1))
+    }
+
+    _.extend(this.vars, req);
+
+    this.computeGrid();
+  };
+
+  // Grid functions
+  // --------------------------------------------------
+
+  _.extend(Grid.prototype, Rune.Shapeable, Rune.Moveable, {
+
+    type: "grid",
+
+    add: function(child, column, row) {
+
+      if(!column) column = 1;
+      if(!row) row = 1;
+
+      if(this.modules[column-1] && this.modules[column-1][row-1]) {
+        this.modules[column-1][row-1].add(child);
+      }
+      else {
+        throw new Error("Column or row does not exist");
+      }
+    },
+
+    computeGrid: function() {
+
+      this.modules = [];
+
+      for(var x = 0; x < this.vars.columns; x++) {
+
+        this.modules.push([]);
+
+        for(var y = 0; y < this.vars.rows; y++) {
+
+          var groupX = (x * this.vars.moduleWidth) + (x * this.vars.gutterX);
+          var groupY = (y * this.vars.moduleHeight) + (y * this.vars.gutterY);
+          this.modules[x].push(new Rune.Group(groupX, groupY));
+        }
+      }
+
+    }
+
+    //copy: function(group) {
+    //  var g = new Rune.Group();
+    //  this.shapeCopy(g, group);
+    //  _.each(this.children, function(child) {
+    //    child.copy(g);
+    //  });
+    //  return g;
+    //}
+
+  });
+
+})(Rune);
+(function(Rune) {
+
   var Vector = Rune.Vector = function(x, y) {
 
     this.x = x || 0;
@@ -5784,12 +5886,6 @@ var Styleable = Rune.Styleable = {
       return _.flatten(objects, true);
     },
 
-    groupToSVG: function(group) {
-      var attr = {}
-      this.transformAttribute(attr, group);
-      return virtualdom.svg('g', attr, this.objectsToSVG(group.children));
-    },
-
     rectangleToSVG: function(rect) {
       var attr = {
         x: rect.vars.x,
@@ -5862,6 +5958,27 @@ var Styleable = Rune.Styleable = {
       return els;
     },
 
+    groupToSVG: function(group) {
+      if(_.isEmpty(group.children)) return;
+      var attr = {}
+      this.transformAttribute(attr, group);
+      return virtualdom.svg('g', attr, this.objectsToSVG(group.children));
+    },
+
+    gridToSVG: function(grid, opts) {
+      var attr = {}
+      this.transformAttribute(attr, grid);
+
+      var groups = [];
+      _.each(grid.modules, _.bind(function(column) {
+        groups.push(this.objectsToSVG(column))
+      }, this));
+
+      if(opts && opts.debug) groups = groups.concat(this.debugGridToSVG(grid));
+
+      return virtualdom.svg('g', attr, _.flatten(groups, true));
+    },
+
     // Debug
     // --------------------------------------------------
 
@@ -5889,11 +6006,46 @@ var Styleable = Rune.Styleable = {
       return els;
     },
 
+    debugGridToSVG: function(grid) {
+
+      var t = this;
+      var els = [];
+
+      // draw container rect
+      els.push(this.debugRect(0, 0, grid.vars.width, grid.vars.height));
+
+      // draw lines for columns
+      var x = 0;
+      for(var i = 0; i < grid.vars.columns-1; i++) {
+        x += grid.vars.moduleWidth;
+        els.push(this.debugLine(x, 0, x, grid.vars.height));
+        x += grid.vars.gutterX;
+        els.push(this.debugLine(x, 0, x, grid.vars.height));
+      }
+
+      // draw lines for rows
+      var y = 0;
+      for(var i = 0; i < grid.vars.rows-1; i++) {
+        y += grid.vars.moduleHeight;
+        els.push(this.debugLine(0, y, grid.vars.width, y));
+        y += grid.vars.gutterY;
+        els.push(this.debugLine(0, y, grid.vars.width, y));
+      }
+
+      return els;
+    },
+
     debugCircle : function(x, y) {
       var c = new Rune.Circle(x, y, 4)
         .fill(212, 18, 229)
         .stroke(false);
       return this.circleToSVG(c);
+    },
+
+    debugRect : function(x, y, width, height) {
+      var r = new Rune.Rectangle(x, y, width, height)
+        .stroke(212, 18, 229).fill(false);
+      return this.rectangleToSVG(r);
     },
 
     debugLine : function(x1, y1, x2, y2) {
@@ -5942,7 +6094,7 @@ var Styleable = Rune.Styleable = {
         strings.push(rot + ")");
       }
 
-      if((shape.type == "group" || shape.type == "path" || shape.type == "polygon") && (vars.x || vars.y)) {
+      if((shape.type == "group" || shape.type == "path" || shape.type == "polygon" || shape.type == "grid") && (vars.x || vars.y)) {
         strings.push("translate(" + vars.x + " " + vars.y + ")");
       }
 
