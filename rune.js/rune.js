@@ -726,11 +726,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -758,12 +758,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -4851,21 +4851,6 @@ function appendPatch(apply, patch) {
     this.initEvents();
   }
 
-  Rune.DRAW = "draw";
-  Rune.RGB = "rgb";
-  Rune.HSV = "hsv";
-  Rune.MOVE = "move"
-  Rune.LINE = "line"
-  Rune.CUBIC = "cubic"
-  Rune.QUAD = "quad"
-  Rune.CLOSE = "close"
-  Rune.BUTT = "butt";
-  Rune.ROUND = "round";
-  Rune.SQUARE = "square";
-  Rune.MITER = "miter";
-  Rune.BEVEL = "bevel";
-
-
   _.extend(Rune.prototype, {
 
     // Events
@@ -4931,6 +4916,12 @@ function appendPatch(apply, patch) {
       return path;
     },
 
+    text: function(text, x, y, group) {
+      var text = new Rune.Text(text, x, y);
+      Rune.addToGroup(text, this.stage, group);
+      return text;
+    },
+
     grid: function(options, parent) {
       var grid = new Rune.Grid(options);
       Rune.addToGroup(grid, this.stage, parent);
@@ -4946,7 +4937,7 @@ function appendPatch(apply, patch) {
     },
 
     playNow: function() {
-      this.trigger(Rune.DRAW, { frameCount: this.frameCount });
+      this.trigger('draw', { frameCount: this.frameCount });
       this.animationFrame = requestAnimationFrame(_.bind(this.play, this));
       this.draw();
     },
@@ -5164,31 +5155,31 @@ var Styleable = Rune.Styleable = {
     }
 
     // HSB
-    else if(a == Rune.HSV) {
-      this.setValues("hsv", {h:b % 360, s:c, v:d});
-      if(e) this.setValues("alpha", e);
+    else if(a == 'hsv') {
+      this.setValues('hsv', {h:b % 360, s:c, v:d});
+      if(e) this.setValues('alpha', e);
     }
 
     // HEX
     else if(_.isString(a)) {
       var vals = colorString.getRgba(a);
-      if (vals)                             this.setValues("rgb", vals);
-      else if (vals = colorString.getHsla(a))  this.setValues("hsl", vals);
-      else if(vals = colorString.getHwb(a))    this.setValues("hwb", vals);
+      if (vals)                             this.setValues('rgb', vals);
+      else if (vals = colorString.getHsla(a))  this.setValues('hsl', vals);
+      else if(vals = colorString.getHwb(a))    this.setValues('hwb', vals);
       else throw new Error("Unable to parse color from string \"" + a + "\"");
-      if(b) this.setValues("alpha", b);
+      if(b) this.setValues('alpha', b);
     }
 
     // GRAYSCALE
     else if(_.isUndefined(c)) {
-      this.setValues("rgb", {r:a, g:a, b:a});
-      if(b) this.setValues("alpha", b);
+      this.setValues('rgb', {r:a, g:a, b:a});
+      if(b) this.setValues('alpha', b);
     }
 
     // RGB
     else if(!_.isUndefined(a)) {
-      this.setValues("rgb", {r:a, g:b, b:c});
-      if(d) this.setValues("alpha", d);
+      this.setValues('rgb', {r:a, g:b, b:c});
+      if(d) this.setValues('alpha', d);
     }
 
   }
@@ -5787,14 +5778,14 @@ var Styleable = Rune.Styleable = {
     },
 
     setMove: function(x, y, relative) {
-      this.command = Rune.MOVE;
+      this.command = 'move';
       this.vec1 = new Rune.Vector(x, y);
       this.relative = !!relative;
       return this;
     },
 
     setLine: function(x, y, relative) {
-      this.command = Rune.LINE;
+      this.command = 'line';
       this.vec1 = new Rune.Vector(x, y);
       this.relative = !!relative;
       return this;
@@ -5805,7 +5796,7 @@ var Styleable = Rune.Styleable = {
       // if we have 6 or more arguments, we create
       // a cubic bezier with 2 control points.
       if(!_.isUndefined(f)) {
-        this.command = Rune.CUBIC;
+        this.command = 'cubic';
         this.vec1 = new Rune.Vector(a, b);
         this.vec2 = new Rune.Vector(c, d);
         this.vec3 = new Rune.Vector(e, f);
@@ -5815,7 +5806,7 @@ var Styleable = Rune.Styleable = {
       // else if we have 4 or more arguments, we create
       // a quad bezier with 1 control point.
       else if(!_.isUndefined(d)) {
-        this.command = Rune.QUAD;
+        this.command = 'quad';
         this.vec1 = new Rune.Vector(a, b);
         this.vec2 = new Rune.Vector(c, d);
         if(e === true)  this.relative = true;
@@ -5824,7 +5815,7 @@ var Styleable = Rune.Styleable = {
       // else we create an automatic quad bezier
       // with no control points.
       else {
-        this.command = Rune.QUAD;
+        this.command = 'quad';
         this.vec1 = new Rune.Vector(a, b);
         if(c === true)  this.relative = true;
       }
@@ -5833,7 +5824,7 @@ var Styleable = Rune.Styleable = {
     },
 
     setClose: function() {
-      this.command = Rune.CLOSE;
+      this.command = 'close';
       return this;
     }
 
@@ -5958,6 +5949,39 @@ var Styleable = Rune.Styleable = {
       return els;
     },
 
+    textToSVG: function(text, opts) {
+      var attr = {
+        x: text.vars.x,
+        y: text.vars.y,
+      }
+      this.transformAttribute(attr, text);
+      this.styleableAttributes(text, attr);
+
+      // attributes that need specific handling
+      if(text.vars.textAlign) {
+        var translate = { "left":"start", "center":"middle", "right":"end" };
+        attr["text-anchor"] = translate[text.vars.textAlign];
+      }
+
+      // attributes that just need to be grabbed from vars
+      this.attributes(text, attr, {
+        "fontFamily" : "font-family",
+        "textAlign" : "text-align",
+        "fontStyle" : "font-style",
+        "fontWeight" : "font-weight",
+        "fontSize" : "font-size",
+        "letterSpacing" : "letter-spacing",
+        "textDecoration" : "text-decoration"
+      });
+
+      if(text.vars.textAlign) {
+        var translate = { "left":"start", "center":"middle", "right":"end" };
+        attr["text-anchor"] = translate[text.vars.textAlign];
+      }
+
+      return virtualdom.svg('text', attr, text.vars.text);
+    },
+
     groupToSVG: function(group) {
       if(_.isEmpty(group.children)) return;
       var attr = {}
@@ -5988,14 +6012,14 @@ var Styleable = Rune.Styleable = {
       var els = [];
 
       _.each(path.vars.anchors, function(a, i) {
-        if(a.command == Rune.CUBIC){
+        if(a.command == 'cubic'){
           els.push(t.debugLine(path.vars.x + a.vec1.x, path.vars.y + a.vec1.y, path.vars.x + a.vec3.x, path.vars.y + a.vec3.y));
           els.push(t.debugLine(path.vars.x + a.vec2.x, path.vars.y + a.vec2.y, path.vars.x + a.vec3.x, path.vars.y + a.vec3.y));
           for(var i = 1; i < 4; i++) {
             els.push(t.debugCircle(path.vars.x + a["vec"+i].x, path.vars.y + a["vec"+i].y))
           }
         }
-        else if(a.command == Rune.QUAD && !_.isUndefined(a.vec2)){
+        else if(a.command == 'quad' && !_.isUndefined(a.vec2)){
           els.push(t.debugLine(path.vars.x + a.vec1.x, path.vars.y + a.vec1.y, path.vars.x + a.vec2.x, path.vars.y + a.vec2.y));
           for(var i = 1; i < 3; i++) {
             els.push(t.debugCircle(path.vars.x + a["vec"+i].x, path.vars.y + a["vec"+i].y))
@@ -6054,8 +6078,16 @@ var Styleable = Rune.Styleable = {
       return this.lineToSVG(l);
     },
 
-    // Mixin converters
+    // Multiple attributes
     // --------------------------------------------------
+
+    attributes : function(object, attr, keys) {
+      _.each(keys, function(attribute, variable) {
+        if(object.vars[variable]) {
+          attr[attribute] = object.vars[variable];
+        }
+      }, this);
+    },
 
     sizeableAttributes: function(object, attr) {
       attr.width = object.vars.width;
@@ -6105,22 +6137,22 @@ var Styleable = Rune.Styleable = {
     dAttribute: function(object, attr) {
       attr.d = _.map(object.vars.anchors, function(a) {
 
-        if(a.command == Rune.MOVE) {
+        if(a.command == 'move') {
           return (a.relative ? "m" : "M") + " " + [a.vec1.x, a.vec1.y].join(' ');
         }
-        else if(a.command == Rune.LINE) {
+        else if(a.command == 'line') {
           return (a.relative ? "l" : "L") + " " + [a.vec1.x, a.vec1.y].join(' ');
         }
-        else if(a.command == Rune.CUBIC){
+        else if(a.command == 'cubic'){
           return (a.relative ? "c" : "C") + " " + [a.vec1.x, a.vec1.y, a.vec2.x, a.vec2.y, a.vec3.x, a.vec3.y].join(' ');
         }
-        else if(a.command == Rune.QUAD && !_.isUndefined(a.vec2)){
+        else if(a.command == 'quad' && !_.isUndefined(a.vec2)){
           return (a.relative ? "q" : "Q") + " " + [a.vec1.x, a.vec1.y, a.vec2.x, a.vec2.y].join(' ');
         }
-        else if(a.command == Rune.QUAD){
+        else if(a.command == 'quad'){
           return (a.relative ? "t" : "T") + " " + [a.vec1.x, a.vec1.y].join(' ');
         }
-        else if(a.command == Rune.CLOSE){
+        else if(a.command == 'close'){
           return "Z";
         }
       }).join(" ").trim();
@@ -6328,6 +6360,40 @@ var Styleable = Rune.Styleable = {
   });
 
 })(Rune);
+(function() {
+
+  var Text = Rune.Text = function(text, x, y) {
+
+    this.moveable();
+    this.styleable();
+
+    this.vars.text = text;
+    this.vars.x = x;
+    this.vars.y = y;
+  };
+
+  _.extend(Text.prototype, Rune.Shapeable, Rune.Moveable, Rune.Styleable, {
+
+    type: "text",
+
+    textAlign: function(textAlign) { this.vars.textAlign = textAlign; return this; },
+    fontFamily: function(fontFamily) { this.vars.fontFamily = fontFamily; return this; },
+    fontStyle: function(fontStyle) { this.vars.fontStyle = fontStyle; return this; },
+    fontWeight: function(fontWeight) { this.vars.fontWeight = fontWeight; return this; },
+    fontSize: function(fontSize) { this.vars.fontSize = fontSize; return this; },
+    letterSpacing: function(letterSpacing) { this.vars.letterSpacing = letterSpacing; return this; },
+    textDecoration: function(textDecoration) { this.vars.textDecoration = textDecoration; return this; },
+
+    copy: function(group) {
+      var t = new Rune.Text();
+      t.vars.text = this.vars.text;
+      this.shapeCopy(t, group);
+      return t;
+    }
+
+  });
+
+})();
 
 _.extend(Rune.prototype, Rune.Events)
 

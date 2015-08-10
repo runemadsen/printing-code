@@ -16,7 +16,7 @@ for(var i = 0; i < numColors; i++) {
   var y = Math.sin(r.radians(curAngle)) * radius;
 
   r.circle((r.width / 2) + x, (r.height / 2) + y, 20)
-    .fill(Rune.HSV, curAngle, 80, 90)
+    .fill('hsv', curAngle, 80, 90)
     .stroke(false);
 }
 

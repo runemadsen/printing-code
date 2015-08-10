@@ -23,11 +23,11 @@ var spacing = 15;
 for(var i = 0; i < colors.length; i++)
 {
   r.rect(x, y, width, height)
-    .fill(Rune.HSV, colors[i][0], colors[i][1], colors[i][2])
+    .fill('hsv', colors[i][0], colors[i][1], colors[i][2])
     .stroke(false);
 
   r.rect(x + width, y, width, height)
-    .fill(Rune.HSV, colors[i][3], colors[i][4], colors[i][5])
+    .fill('hsv', colors[i][3], colors[i][4], colors[i][5])
     .stroke(false);
 
   y += height + spacing;

@@ -16,7 +16,7 @@ r.on('mousemove', function(mouse) {
   // mouse cursor
   var hue = (mouse.x / r.width) * 360;
   var brightness = (mouse.y / r.height) * 100;
-  bg.fill(Rune.HSV, hue, 100, brightness);
+  bg.fill('hsv', hue, 100, brightness);
 
   // change the front rectangle to black or white
   // depending on the luminosity.

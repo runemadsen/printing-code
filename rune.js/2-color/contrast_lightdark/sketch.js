@@ -10,7 +10,7 @@ var size = 80;
 // WRONG
 for(var i = 0; i < 10; i++) {
   r.rect(i * size, 0, size, r.height/2)
-    .fill(Rune.HSV, 0, 0, i * 10)
+    .fill('hsv', 0, 0, i * 10)
     .stroke(false)
 }
 

@@ -7,7 +7,7 @@ var r = new Rune({
 
 // Draw a red rectangle
 var redSquare = r.rect(50, 20, 80, 360)
-  .fill(Rune.HSV, 0, 100, 100)
+  .fill('hsv', 0, 100, 100)
   .stroke(false);
 
 // Darken and desaturate original color
