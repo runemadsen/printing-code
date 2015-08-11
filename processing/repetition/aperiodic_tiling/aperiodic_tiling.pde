@@ -7,16 +7,16 @@ int startSize;
 void setup()
 {
   size(1280, 800);
-  background(255); 
+  background(255);
   smooth();
   stroke(0);
 
   // draw single shape
-  maxLevel = 8;
+  maxLevel = 4;
   startSize = 1700;
   translate(0, -850);
   drawL(0, 0, startSize, 0, 0, color(60, 100, 150));
-  
+
   // fill the entire thing
   /*maxLevel = 5;
   startSize = 600;
@@ -38,11 +38,11 @@ void drawL(float x, float y, float sideLength, float rot, int level, int col)
   vertex(sideLength/2, sideLength/2);
   vertex(sideLength / 2, 0);
   endShape(CLOSE);
-  
+
   if(level < maxLevel)
   {
     level++;
-    
+
     drawL(sideLength/4, sideLength/4, sideLength/2, 0, level, color(60, 100, 150));
     drawL(sideLength/2, 0, sideLength/2, 90, level, color(140, 180, 220));
     drawL(0, sideLength/2, sideLength/2, 0, level, color(40, 40, 40));
