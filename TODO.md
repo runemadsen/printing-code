@@ -4,3 +4,5 @@
 - Groups and stage graph
 - HWB (whitening is not the complement of blackening)
 - grid rotation
+- Repetition: ALL THESE! http://www.theguardian.com/science/alexs-adventures-in-numberland/2015/aug/10/attack-on-the-pentagon-results-in-discovery-of-new-mathematical-tile
+- Calculating optimally distinct colors. http://tools.medialab.sciences-po.fr/iwanthue/?utm_content=buffer7d22d&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer

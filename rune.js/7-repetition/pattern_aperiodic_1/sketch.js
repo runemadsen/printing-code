@@ -11,8 +11,7 @@ var color2 = new Rune.Color(140, 180, 220);
 var color3 = new Rune.Color(40, 40, 40);
 var color4 = new Rune.Color(50, 60, 70);
 
-var pattern = drawL(0, 0, 0, 600, 0, color1)
-  .move(0, 0);
+var pattern = drawL(0, 0, 0, 600, 0, color1);
 
 function drawL(x, y, rot, len, level, color, parent) {
 

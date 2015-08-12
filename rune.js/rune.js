@@ -726,11 +726,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) {
+  convert[from][to] = convert[func] = (function(func) { 
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-
+      
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -758,12 +758,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);
+      values = Array.prototype.slice.call(args);        
    }
 
    return this.setValues(space, values);
 };
-
+  
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -5603,8 +5603,8 @@ var Styleable = Rune.Styleable = {
     this.moveable();
     this.children = [];
 
-    if(x > 0) this.vars.x = x;
-    if(y > 0) this.vars.y = y;
+    if(!_.isUndefined(x)) this.vars.x = x;
+    if(!_.isUndefined(y)) this.vars.y = y;
   };
 
   // Group functions
@@ -6279,8 +6279,8 @@ var Styleable = Rune.Styleable = {
     this.styleable();
     this.vars.vectors = [];
 
-    if(x > 0) this.vars.x = x;
-    if(y > 0) this.vars.y = y;
+    if(!_.isUndefined(x)) this.vars.x = x;
+    if(!_.isUndefined(y)) this.vars.y = y;
   };
 
   _.extend(Polygon.prototype, Rune.Shapeable, Rune.Moveable, Rune.Styleable, {
@@ -6311,8 +6311,8 @@ var Styleable = Rune.Styleable = {
     this.styleable();
 
     this.vars.anchors = [];
-    if(x > 0) this.vars.x = x;
-    if(y > 0) this.vars.y = y;
+    if(!_.isUndefined(x)) this.vars.x = x;
+    if(!_.isUndefined(y)) this.vars.y = y;
   };
 
   _.extend(Path.prototype, Rune.Shapeable, Rune.Moveable, Rune.Styleable, {

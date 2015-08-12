@@ -8,7 +8,7 @@ int startSize = 0;
 void setup()
 {
   size(1280, 800);
-  background(255); 
+  background(255);
   smooth();
   stroke(0);
 
@@ -19,9 +19,9 @@ void setup()
   drawTriangle(0, 0, startSize, 0, 0, false, color(0, 60, 130));*/
 
   // or fill the screen
-  startSize = 5000;
-  maxLevel = 10;
-  translate(width / 2, -500);
+  startSize = 800;
+  maxLevel = 1;
+  translate(width/2, 200);
   drawTriangle(0, 0, startSize, 0, 0, false, color(0, 60, 130));
 }
 
@@ -37,7 +37,7 @@ void drawTriangle(float x, float y, float bottomSize, float rot, int level, bool
   rotate(radians(rot));
   fill(col);
   triangle(0, 0, -b, a, b, a);
-  
+
   if(drawSingle && level < maxLevel)
   {
     level++;
@@ -46,7 +46,7 @@ void drawTriangle(float x, float y, float bottomSize, float rot, int level, bool
   else if(level < maxLevel)
   {
     level++;
-    
+
     drawTriangle(-(a / factor), a, c, 150, level, false, color(0, 60, 130));
     drawTriangle(a / factor, a, c, -150, level, false, color(0, 60, 130));
 
@@ -55,7 +55,7 @@ void drawTriangle(float x, float y, float bottomSize, float rot, int level, bool
     float childC = childBottom / factor;
     float childA = sqrt(sq(childC) - sq(childB)); // a2 + b2 = c2
 
-    // all these small triangles should draw a big one, not subdivide immediately. 
+    // all these small triangles should draw a big one, not subdivide immediately.
     drawTriangle(0, a - childA, childBottom, 0, level, true, color(80, 200, 250));
     drawTriangle(0, a - childA, childBottom, 120, level, true, color(80, 200, 250));
     drawTriangle(0, a - childA, childBottom, -120, level, true, color(80, 200, 250));
