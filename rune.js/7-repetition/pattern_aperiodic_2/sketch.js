@@ -5,7 +5,7 @@ var r = new Rune({
 });
 
 var factor = Math.sqrt(3);
-var maxLevel = 1;
+var maxLevel = 5;
 
 var color1 = new Rune.Color(0, 60, 130);
 var color2 = new Rune.Color(80, 200, 250);
